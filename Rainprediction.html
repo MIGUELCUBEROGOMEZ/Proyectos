@@ -1,0 +1,1964 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Mis Proyectos - 4&nbsp; Predicción de lluvia en Australia</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./zumonaranjas.html" rel="next">
+<link href="./clusters.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Rainprediction.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Predicción de lluvia en Australia</span></a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Mis Proyectos</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Prólogo</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Eda.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Análisis Exploratorio de Datos</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./clusters.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Diversos tipos de clusterización</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Rainprediction.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Predicción de lluvia en Australia</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./zumonaranjas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Validación cruzada en diversos modelos</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./TFG.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">TFG</span></span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#resumen-ejecutivo." id="toc-resumen-ejecutivo." class="nav-link active" data-scroll-target="#resumen-ejecutivo."><span class="header-section-number">5</span> Resumen ejecutivo.</a></li>
+  <li><a href="#introducción" id="toc-introducción" class="nav-link" data-scroll-target="#introducción"><span class="header-section-number">6</span> Introducción</a></li>
+  <li><a href="#descripción-del-conjunto-de-datos" id="toc-descripción-del-conjunto-de-datos" class="nav-link" data-scroll-target="#descripción-del-conjunto-de-datos"><span class="header-section-number">7</span> Descripción del conjunto de datos</a>
+  <ul class="collapse">
+  <li><a href="#análisis-general-del-conjunto-de-datos." id="toc-análisis-general-del-conjunto-de-datos." class="nav-link" data-scroll-target="#análisis-general-del-conjunto-de-datos."><span class="header-section-number">7.1</span> Análisis general del conjunto de datos.</a>
+  <ul class="collapse">
+  <li><a href="#figuras" id="toc-figuras" class="nav-link" data-scroll-target="#figuras"><span class="header-section-number">7.1.1</span> Figuras</a></li>
+  </ul></li>
+  <li><a href="#análisis-de-las-variables-categóricas" id="toc-análisis-de-las-variables-categóricas" class="nav-link" data-scroll-target="#análisis-de-las-variables-categóricas"><span class="header-section-number">7.2</span> Análisis de las variables categóricas</a>
+  <ul class="collapse">
+  <li><a href="#tabla-1.-windgustdir" id="toc-tabla-1.-windgustdir" class="nav-link" data-scroll-target="#tabla-1.-windgustdir"><span class="header-section-number">7.2.1</span> Tabla 1. WindGustDir</a></li>
+  <li><a href="#tabla-2.-winddir9am" id="toc-tabla-2.-winddir9am" class="nav-link" data-scroll-target="#tabla-2.-winddir9am"><span class="header-section-number">7.2.2</span> Tabla 2. WindDir9am</a></li>
+  <li><a href="#tabla-3.-winddir3pm" id="toc-tabla-3.-winddir3pm" class="nav-link" data-scroll-target="#tabla-3.-winddir3pm"><span class="header-section-number">7.2.3</span> Tabla 3. WindDir3pm</a></li>
+  <li><a href="#tabla-4.-raintoday" id="toc-tabla-4.-raintoday" class="nav-link" data-scroll-target="#tabla-4.-raintoday"><span class="header-section-number">7.2.4</span> Tabla 4. RainToday</a></li>
+  <li><a href="#tabla-5.-raintomorrow" id="toc-tabla-5.-raintomorrow" class="nav-link" data-scroll-target="#tabla-5.-raintomorrow"><span class="header-section-number">7.2.5</span> Tabla 5. RainTomorrow</a></li>
+  <li><a href="#tabla-6.-valores-distintos-para-variables-categóricas" id="toc-tabla-6.-valores-distintos-para-variables-categóricas" class="nav-link" data-scroll-target="#tabla-6.-valores-distintos-para-variables-categóricas"><span class="header-section-number">7.2.6</span> Tabla 6. Valores distintos para variables categóricas</a></li>
+  <li><a href="#correlaciones-entre-las-variables-categóricas" id="toc-correlaciones-entre-las-variables-categóricas" class="nav-link" data-scroll-target="#correlaciones-entre-las-variables-categóricas"><span class="header-section-number">7.2.7</span> Correlaciones entre las variables categóricas</a></li>
+  </ul></li>
+  <li><a href="#análisis-de-las-variables-numéricas" id="toc-análisis-de-las-variables-numéricas" class="nav-link" data-scroll-target="#análisis-de-las-variables-numéricas"><span class="header-section-number">7.3</span> Análisis de las variables numéricas</a>
+  <ul class="collapse">
+  <li><a href="#tabla-7.-estadísticas-para-diferentes-campos" id="toc-tabla-7.-estadísticas-para-diferentes-campos" class="nav-link" data-scroll-target="#tabla-7.-estadísticas-para-diferentes-campos"><span class="header-section-number">7.3.1</span> Tabla 7. Estadísticas para diferentes campos</a></li>
+  <li><a href="#tabla-8.-moda-porcentaje-de-na-y-rango-de-validez" id="toc-tabla-8.-moda-porcentaje-de-na-y-rango-de-validez" class="nav-link" data-scroll-target="#tabla-8.-moda-porcentaje-de-na-y-rango-de-validez"><span class="header-section-number">7.3.2</span> Tabla 8. Moda, Porcentaje de NA y Rango de Validez</a></li>
+  <li><a href="#correlaciones-entre-las-variables-numéricas" id="toc-correlaciones-entre-las-variables-numéricas" class="nav-link" data-scroll-target="#correlaciones-entre-las-variables-numéricas"><span class="header-section-number">7.3.3</span> Correlaciones entre las variables numéricas</a></li>
+  </ul></li>
+  <li><a href="#análisis-de-las-precipitaciones-a-lo-largo-del-año" id="toc-análisis-de-las-precipitaciones-a-lo-largo-del-año" class="nav-link" data-scroll-target="#análisis-de-las-precipitaciones-a-lo-largo-del-año"><span class="header-section-number">7.4</span> Análisis de las precipitaciones a lo largo del año</a>
+  <ul class="collapse">
+  <li><a href="#cantidad-de-registros-por-estación-meteorológica" id="toc-cantidad-de-registros-por-estación-meteorológica" class="nav-link" data-scroll-target="#cantidad-de-registros-por-estación-meteorológica"><span class="header-section-number">7.4.1</span> Cantidad de Registros por Estación Meteorológica</a></li>
+  <li><a href="#análisis-de-ausencias-y-distribución-temporal" id="toc-análisis-de-ausencias-y-distribución-temporal" class="nav-link" data-scroll-target="#análisis-de-ausencias-y-distribución-temporal"><span class="header-section-number">7.4.2</span> Análisis de Ausencias y Distribución Temporal</a></li>
+  <li><a href="#diferencia-de-precipitaciones-en-distintas-ubicaciones" id="toc-diferencia-de-precipitaciones-en-distintas-ubicaciones" class="nav-link" data-scroll-target="#diferencia-de-precipitaciones-en-distintas-ubicaciones"><span class="header-section-number">7.4.3</span> Diferencia de Precipitaciones en Distintas Ubicaciones</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#conclusiones-entrega-1" id="toc-conclusiones-entrega-1" class="nav-link" data-scroll-target="#conclusiones-entrega-1"><span class="header-section-number">8</span> Conclusiones Entrega 1</a></li>
+  <li><a href="#limpieza-selección-transformación-y-creación-de-un-primer-modelo" id="toc-limpieza-selección-transformación-y-creación-de-un-primer-modelo" class="nav-link" data-scroll-target="#limpieza-selección-transformación-y-creación-de-un-primer-modelo"><span class="header-section-number">9</span> Limpieza, selección, transformación y creación de un primer modelo</a>
+  <ul class="collapse">
+  <li><a href="#consideraciones-previas" id="toc-consideraciones-previas" class="nav-link" data-scroll-target="#consideraciones-previas"><span class="header-section-number">9.1</span> Consideraciones previas</a></li>
+  <li><a href="#conjuntos-de-entrenamiento-y-prueba" id="toc-conjuntos-de-entrenamiento-y-prueba" class="nav-link" data-scroll-target="#conjuntos-de-entrenamiento-y-prueba"><span class="header-section-number">9.2</span> Conjuntos de entrenamiento y prueba</a></li>
+  <li><a href="#limpieza-de-datos" id="toc-limpieza-de-datos" class="nav-link" data-scroll-target="#limpieza-de-datos"><span class="header-section-number">9.3</span> Limpieza de datos</a></li>
+  <li><a href="#selección-atributos" id="toc-selección-atributos" class="nav-link" data-scroll-target="#selección-atributos"><span class="header-section-number">9.4</span> Selección atributos</a></li>
+  <li><a href="#transformación-de-datos" id="toc-transformación-de-datos" class="nav-link" data-scroll-target="#transformación-de-datos"><span class="header-section-number">9.5</span> Transformación de datos</a></li>
+  <li><a href="#evaluación-del-modelo" id="toc-evaluación-del-modelo" class="nav-link" data-scroll-target="#evaluación-del-modelo"><span class="header-section-number">9.6</span> Evaluación del modelo</a></li>
+  </ul></li>
+  <li><a href="#creación-selección-y-evaluación-de-modelos" id="toc-creación-selección-y-evaluación-de-modelos" class="nav-link" data-scroll-target="#creación-selección-y-evaluación-de-modelos"><span class="header-section-number">10</span> Creación, selección y evaluación de modelos</a>
+  <ul class="collapse">
+  <li><a href="#clusterización" id="toc-clusterización" class="nav-link" data-scroll-target="#clusterización"><span class="header-section-number">10.1</span> Clusterización</a></li>
+  <li><a href="#primer-modelo" id="toc-primer-modelo" class="nav-link" data-scroll-target="#primer-modelo"><span class="header-section-number">10.2</span> Primer modelo</a></li>
+  <li><a href="#segundo-modelo" id="toc-segundo-modelo" class="nav-link" data-scroll-target="#segundo-modelo"><span class="header-section-number">10.3</span> Segundo modelo</a></li>
+  </ul></li>
+  <li><a href="#conclusiones-engrega-3" id="toc-conclusiones-engrega-3" class="nav-link" data-scroll-target="#conclusiones-engrega-3"><span class="header-section-number">11</span> Conclusiones engrega 3</a></li>
+  <li><a href="#referencias" id="toc-referencias" class="nav-link" data-scroll-target="#referencias"><span class="header-section-number">12</span> Referencias</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Predicción de lluvia en Australia</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="resumen-ejecutivo." class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Resumen ejecutivo.</h1>
+<ol type="1">
+<li><p><strong>Nombre del conjunto de datos:</strong> weatherAUS</p></li>
+<li><p><strong>Origen:</strong></p>
+<ol type="a">
+<li><p><strong>Origen de los datos:</strong> Commonwealth of Australia 2010, Bureau of Meteorology Los datos fueron extraídos de mediciones realizadas por múltiples estaciones meteorológicas australianas. Estos datos fueron recopilados y puestos a disposición del público por parte de la agencia nacional de meteorología, clima y agua de Australia a través de los siguientes enlaces:</p>
+<ul>
+<li><a href="http://www.bom.gov.au/climate/dwo/" class="uri">http://www.bom.gov.au/climate/dwo/</a></li>
+<li><a href="http://www.bom.gov.au/climate/data" class="uri">http://www.bom.gov.au/climate/data</a></li>
+</ul></li>
+<li><p><strong>Origen del conjunto de datos:</strong> Rain in Australia | Kaggle <a href="https://www.kaggle.com/datasets/jsphyg/weather-dataset-rattle-package" class="uri">https://www.kaggle.com/datasets/jsphyg/weather-dataset-rattle-package</a></p></li>
+<li><p><strong>Fecha de descarga:</strong> Octubre de 2023</p></li>
+</ol></li>
+<li><p><strong>Usos anteriores del conjunto de datos:</strong></p>
+<ol type="a">
+<li><p><strong>Uso original:</strong> Joe Young, autor de la publicación original en kaggle.com no aduce a un uso previo del conjunto de datos. Se indica que fue recopilado con el propósito de entrenar modelos de clasificación que determinen si lloverá el próximo día mediante observaciones tomadas a lo largo de 10 años en múltiples ubicaciones australianas.</p></li>
+<li><p><strong>Otros usos:</strong> Dado que el conjunto de datos está disponible en Kaggle.com, existe una notable cantidad de trabajos que lo utilizan. A continuación se citan algunos de ellos.</p>
+<ul>
+<li>A. Sarasa-Cabezuelo, Prediction of Rainfall in Australia Using Machine Learning. Information 2022, 13, 163. <a href="https://doi.org/10.3390/info13040163" class="uri">https://doi.org/10.3390/info13040163</a></li>
+<li>T.J. Kyner, Rain in Australia - Next-Day Prediction Model. GitHub repository (2021). <a href="https://github.com/tjkyner/australian-rain-prediction" class="uri">https://github.com/tjkyner/australian-rain-prediction</a></li>
+</ul></li>
+</ol></li>
+<li><p><strong>Número de instancias:</strong> 145460</p></li>
+<li><p><strong>Información de los atributos:</strong> En el conjunto de datos aparece la fecha de las mediciones, las estaciones a considerar, dadas por el atributo Location, y otros 20 atributos que se pueden utilizar para predecir el valor del atributo RainTomorrow.</p>
+<table class="table">
+<colgroup>
+<col style="width: 21%">
+<col style="width: 21%">
+<col style="width: 21%">
+<col style="width: 34%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Nombre</th>
+<th>Tipo de dato</th>
+<th>Unidad de medida</th>
+<th>Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Date</td>
+<td>fecha</td>
+<td></td>
+<td>fecha de la medicion</td>
+</tr>
+<tr class="even">
+<td>Location</td>
+<td>nominal</td>
+<td></td>
+<td>ubicación</td>
+</tr>
+<tr class="odd">
+<td>MinTemp</td>
+<td>continuo</td>
+<td>grado C</td>
+<td>temperatura mínima</td>
+</tr>
+<tr class="even">
+<td>MaxTemp</td>
+<td>continuo</td>
+<td>grado C</td>
+<td>temperatura máxima</td>
+</tr>
+<tr class="odd">
+<td>Rainfall</td>
+<td>continuo</td>
+<td>mm</td>
+<td>precipitaciones</td>
+</tr>
+<tr class="even">
+<td>Evaporation</td>
+<td>continuo</td>
+<td>mm</td>
+<td>tanque clase A</td>
+</tr>
+<tr class="odd">
+<td>Sunshine</td>
+<td>continuo</td>
+<td>hora</td>
+<td>tiempo del día soleado</td>
+</tr>
+<tr class="even">
+<td>WindGustDir</td>
+<td>nominal</td>
+<td>16 puntos cardinales</td>
+<td>dirección máx v viento</td>
+</tr>
+<tr class="odd">
+<td>WindGustSpeed</td>
+<td>discreto</td>
+<td>km/h</td>
+<td>max. velocidad viento</td>
+</tr>
+<tr class="even">
+<td>WindDir9am</td>
+<td>nominal</td>
+<td>16 puntos cardinales</td>
+<td>dirección viento 09:00</td>
+</tr>
+<tr class="odd">
+<td>WindDir3pm</td>
+<td>nominal</td>
+<td>16 puntos cardinales</td>
+<td>dirección viento 15:00</td>
+</tr>
+<tr class="even">
+<td>WindSpeed9am</td>
+<td>discreto</td>
+<td>km/h</td>
+<td>velocidad viento 09:00</td>
+</tr>
+<tr class="odd">
+<td>WindSpeed3pm</td>
+<td>discreto</td>
+<td>km/h</td>
+<td>velocidad viento 15:00</td>
+</tr>
+<tr class="even">
+<td>Humidity9am</td>
+<td>discreto</td>
+<td>tanto por ciento</td>
+<td>humedad relativa 09:00</td>
+</tr>
+<tr class="odd">
+<td>Humidity3pm</td>
+<td>discreto</td>
+<td>tanto por ciento</td>
+<td>humedad relativa 15:00</td>
+</tr>
+<tr class="even">
+<td>Pressure9am</td>
+<td>continuo</td>
+<td>hPa</td>
+<td>presión 09:00</td>
+</tr>
+<tr class="odd">
+<td>Pressure3pm</td>
+<td>continuo</td>
+<td>hPa</td>
+<td>presión 15:00</td>
+</tr>
+<tr class="even">
+<td>Cloud9am</td>
+<td>discreto</td>
+<td>octante</td>
+<td>fracción cielo nublado</td>
+</tr>
+<tr class="odd">
+<td>Cloud3pm</td>
+<td>discreto</td>
+<td>octante</td>
+<td>fracción cielo nublado</td>
+</tr>
+<tr class="even">
+<td>Temp9am</td>
+<td>continuo</td>
+<td>grado C</td>
+<td>temperatura 09:00</td>
+</tr>
+<tr class="odd">
+<td>Temp3pm</td>
+<td>continuo</td>
+<td>grado C</td>
+<td>temperatura 15:00</td>
+</tr>
+<tr class="even">
+<td>RainToday</td>
+<td>nominal</td>
+<td></td>
+<td>¿hubo precipitaciones?</td>
+</tr>
+<tr class="odd">
+<td>RainTomorrow</td>
+<td>nominal</td>
+<td></td>
+<td>¿llovió al día siguiente?</td>
+</tr>
+</tbody>
+</table></li>
+</ol>
+<p>En particular, los atributos RainToday y RainTomorrow se comportan de manera binaria (Yes/No) considerando que Yes aparece solo si de 9am a 9pm se registró más de 1 mm de precipitación.</p>
+<p>Cantidad de atributos por tipo:</p>
+<pre><code>- 7 atributos categóricos, de los cuales 1 es de tipo fecha y 6 son nominales;
+- 16 atributos numéricos, de los cuales 9 son continuos y 7 discretos.
+- 23 atributos en total.</code></pre>
+<ol start="6" type="1">
+<li><p><strong>Distribución de clases:</strong></p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Clases</th>
+<th>Recuento</th>
+<th>Porcentaje(%)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>No</td>
+<td>110316</td>
+<td>75.84</td>
+</tr>
+<tr class="even">
+<td>Yes</td>
+<td>31877</td>
+<td>21.92</td>
+</tr>
+<tr class="odd">
+<td>NA</td>
+<td>3261</td>
+<td>2.24</td>
+</tr>
+</tbody>
+</table>
+<p>Numero de clases: 3</p></li>
+</ol>
+</section>
+<section id="introducción" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> Introducción</h1>
+<p>La capacidad de predecir el tiempo ha sido, desde tiempos antiguos, una de las tareas más apasionantes y vitales en el ámbito de la ciencia y la tecnología. A lo largo de la historia, la humanidad ha observado los cambios en el cielo y las condiciones atmosféricas para adaptarse a su entorno y tomar decisiones fundamentadas, ya sea en la agricultura, la navegación o la protección ante eventos climáticos extremos. A medida que avanzan los avances científicos y tecnológicos, hemos progresado desde la dependencia de observaciones empíricas hacia la predicción del tiempo basada en datos, modelos matemáticos y observaciones científicas precisas.</p>
+<p>La predicción del tiempo desempeña un rol crítico en la vida cotidiana. Desde la planificación de actividades al aire libre hasta la toma de decisiones cruciales en el mundo empresarial, la información precisa sobre las condiciones climáticas se convierte en un activo esencial. Además, en un mundo en constante evolución marcado por el calentamiento global y el cambio climático, la predicción del tiempo juega un papel vital en la comprensión y mitigación de los efectos de eventos climáticos extremos.</p>
+<p>Esta introducción destaca la importancia de la predicción del tiempo en nuestra vida diaria y su relevancia a nivel global. En la actualidad, a medida que nos adentramos en la era de la ciencia de datos y la innovación tecnológica, las modernas técnicas de predicción meteorológica se han vuelto más precisas y avanzadas. En este contexto, exploraremos varios modelos para predecir el tiempo usando el aprendizaje automático.</p>
+</section>
+<section id="descripción-del-conjunto-de-datos" class="level1" data-number="7">
+<h1 data-number="7"><span class="header-section-number">7</span> Descripción del conjunto de datos</h1>
+<section id="análisis-general-del-conjunto-de-datos." class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="análisis-general-del-conjunto-de-datos."><span class="header-section-number">7.1</span> Análisis general del conjunto de datos.</h2>
+<p>El conjunto de datos contiene observaciones de 49 estaciones repartidas por toda Australia. A continuación mostraremos en una imagen sus ubicaciones. Resulta lógico pensar que dependiendo del clima de la región la probabilidad de llover será mayor o menor, por tanto también representaremos los diferentes climas de Australia.</p>
+<section id="figuras" class="level3" data-number="7.1.1">
+<h3 data-number="7.1.1" class="anchored" data-anchor-id="figuras"><span class="header-section-number">7.1.1</span> Figuras</h3>
+<p>Las siguientes figuras muestran información relevante sobre las estaciones y climas en Australia.</p>
+<div id="fig:ubicacion-estaciones" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="imagenes/EstacionesAustralia.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Figura 1. Ubicación de las estaciones</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="imagenes/ClimasAustralia.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Figura 2. Distintos climas en Australia</figcaption>
+</figure>
+</div>
+<p>En la figura 1 podemos observar como el mayor número de estaciones se encuentra en la zona sureste del mapa. Esto se debe a que es la zona más poblada de Australia, donde se encuentran las grandes ciudades como Sydney o Melbourne. Una pregunta lógica tras ver las ubicaciones de la estaciones es pensar en si será mejor tratar las estaciones aisladas como independientes de las demás y estudiarlas a parte. Debido al gran tamaño de Australia podemos pensar en si realmente influye el tiempo al este con el tiempo al oeste. En la Sección <em>Análisis de las precipitaciones a lo largo del año</em> estudiaremos la lluvia en distintas estaciones para reforzar este pensamiento. A continuación analizaremos la figura 3 que representa el porcentaje de <em>missing values</em> de cada variable.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="imagenes/PorcentajeNA.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Figura 3. Histograma de las diferentes variables numéricas.</figcaption>
+</figure>
+</div>
+<p>Las variables con mayor porcentaje de NA son <em>Sunshine</em>, <em>Evaporation</em>, <em>Cloud9am</em> y <em>Cloud3pm</em>. Esto se puede deber a que estas medidas solo se hayan tomado ciertos años o sean difíciles de medir como <em>Evaporation</em>. Las siguientes variables con mayor porcentaje son las relativas a la presión y la humedad pero en menor medida que las anteriores. Podemos pensar que se debe a una falta de herramientas o a problemas técnicos. Las demás variables tienen niveles relativamente bajos de NAs. Algo importante a destacar es que las variables <em>Date</em> y <em>Location</em> no tienen datos faltantes en todo el conjunto, esto nos ahorrará problemas más adelante.</p>
+</section>
+</section>
+<section id="análisis-de-las-variables-categóricas" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="análisis-de-las-variables-categóricas"><span class="header-section-number">7.2</span> Análisis de las variables categóricas</h2>
+<p>Las tablas que se presentan a continuación representan el recuento total de cada valor de las variables <em>WindGustDir</em>, <em>WindDir9am</em>, <em>WindDir3pm</em>, <em>RainToday</em> y <em>RainTomorrow</em>. Usando las tablas podemos ver la frecuencia de cada uno de los <em>valores</em> y, por ende, saber la que aparece con mayor frecuencia. También aparece el recuento de los NAs de cada variable.</p>
+<section id="tabla-1.-windgustdir" class="level3" data-number="7.2.1">
+<h3 data-number="7.2.1" class="anchored" data-anchor-id="tabla-1.-windgustdir"><span class="header-section-number">7.2.1</span> Tabla 1. WindGustDir</h3>
+<table class="table">
+<thead>
+<tr class="header">
+<th>WindGustDir</th>
+<th>count</th>
+<th>percentage</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>E</td>
+<td>9181</td>
+<td>6.3117 %</td>
+</tr>
+<tr class="even">
+<td>ENE</td>
+<td>8104</td>
+<td>5.5713 %</td>
+</tr>
+<tr class="odd">
+<td>ESE</td>
+<td>7372</td>
+<td>5.0681 %</td>
+</tr>
+<tr class="even">
+<td>N</td>
+<td>9313</td>
+<td>6.4024 %</td>
+</tr>
+<tr class="odd">
+<td>NA</td>
+<td>10326</td>
+<td>7.0989 %</td>
+</tr>
+<tr class="even">
+<td>NE</td>
+<td>7133</td>
+<td>4.9038 %</td>
+</tr>
+<tr class="odd">
+<td>NNE</td>
+<td>6548</td>
+<td>4.5016 %</td>
+</tr>
+<tr class="even">
+<td>NNW</td>
+<td>6620</td>
+<td>4.5511 %</td>
+</tr>
+<tr class="odd">
+<td>NW</td>
+<td>8122</td>
+<td>5.5837 %</td>
+</tr>
+<tr class="even">
+<td>S</td>
+<td>9168</td>
+<td>6.3028 %</td>
+</tr>
+<tr class="odd">
+<td>SE</td>
+<td>9418</td>
+<td>6.4746 %</td>
+</tr>
+<tr class="even">
+<td>SSE</td>
+<td>9216</td>
+<td>6.3358 %</td>
+</tr>
+<tr class="odd">
+<td>SSW</td>
+<td>8736</td>
+<td>6.0058 %</td>
+</tr>
+<tr class="even">
+<td>SW</td>
+<td>8967</td>
+<td>6.1646 %</td>
+</tr>
+<tr class="odd">
+<td>W</td>
+<td>9915</td>
+<td>6.8163 %</td>
+</tr>
+<tr class="even">
+<td>WNW</td>
+<td>8252</td>
+<td>5.6730 %</td>
+</tr>
+<tr class="odd">
+<td>WSW</td>
+<td>9069</td>
+<td>6.2347 %</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="tabla-2.-winddir9am" class="level3" data-number="7.2.2">
+<h3 data-number="7.2.2" class="anchored" data-anchor-id="tabla-2.-winddir9am"><span class="header-section-number">7.2.2</span> Tabla 2. WindDir9am</h3>
+<table class="table">
+<thead>
+<tr class="header">
+<th>WindDir9am</th>
+<th>count</th>
+<th>percentage</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>E</td>
+<td>9176</td>
+<td>6.3083 %</td>
+</tr>
+<tr class="even">
+<td>ENE</td>
+<td>7836</td>
+<td>5.3870 %</td>
+</tr>
+<tr class="odd">
+<td>ESE</td>
+<td>7630</td>
+<td>5.2454 %</td>
+</tr>
+<tr class="even">
+<td>N</td>
+<td>11758</td>
+<td>8.0833 %</td>
+</tr>
+<tr class="odd">
+<td>NA</td>
+<td>10566</td>
+<td>7.2639 %</td>
+</tr>
+<tr class="even">
+<td>NE</td>
+<td>7671</td>
+<td>5.2736 %</td>
+</tr>
+<tr class="odd">
+<td>NNE</td>
+<td>8129</td>
+<td>5.5885 %</td>
+</tr>
+<tr class="even">
+<td>NNW</td>
+<td>7980</td>
+<td>5.4860 %</td>
+</tr>
+<tr class="odd">
+<td>NW</td>
+<td>8749</td>
+<td>6.0147 %</td>
+</tr>
+<tr class="even">
+<td>S</td>
+<td>8659</td>
+<td>5.9528 %</td>
+</tr>
+<tr class="odd">
+<td>SE</td>
+<td>9287</td>
+<td>6.3846 %</td>
+</tr>
+<tr class="even">
+<td>SSE</td>
+<td>9112</td>
+<td>6.2643 %</td>
+</tr>
+<tr class="odd">
+<td>SSW</td>
+<td>7587</td>
+<td>5.2159 %</td>
+</tr>
+<tr class="even">
+<td>SW</td>
+<td>8423</td>
+<td>5.7906 %</td>
+</tr>
+<tr class="odd">
+<td>W</td>
+<td>8459</td>
+<td>5.8153 %</td>
+</tr>
+<tr class="even">
+<td>WNW</td>
+<td>7414</td>
+<td>5.0969 %</td>
+</tr>
+<tr class="odd">
+<td>WSW</td>
+<td>7024</td>
+<td>4.8288 %</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="tabla-3.-winddir3pm" class="level3" data-number="7.2.3">
+<h3 data-number="7.2.3" class="anchored" data-anchor-id="tabla-3.-winddir3pm"><span class="header-section-number">7.2.3</span> Tabla 3. WindDir3pm</h3>
+<table class="table">
+<thead>
+<tr class="header">
+<th>WindDir3pm</th>
+<th>count</th>
+<th>percentage</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>E</td>
+<td>8472</td>
+<td>5.8243 %</td>
+</tr>
+<tr class="even">
+<td>ENE</td>
+<td>7857</td>
+<td>5.4015 %</td>
+</tr>
+<tr class="odd">
+<td>ESE</td>
+<td>8505</td>
+<td>5.8470 %</td>
+</tr>
+<tr class="even">
+<td>N</td>
+<td>8890</td>
+<td>6.1116 %</td>
+</tr>
+<tr class="odd">
+<td>NA</td>
+<td>4228</td>
+<td>2.9066 %</td>
+</tr>
+<tr class="even">
+<td>NE</td>
+<td>8263</td>
+<td>5.6806 %</td>
+</tr>
+<tr class="odd">
+<td>NNE</td>
+<td>6590</td>
+<td>4.5305 %</td>
+</tr>
+<tr class="even">
+<td>NNW</td>
+<td>7870</td>
+<td>5.4104 %</td>
+</tr>
+<tr class="odd">
+<td>NW</td>
+<td>8610</td>
+<td>5.9192 %</td>
+</tr>
+<tr class="even">
+<td>S</td>
+<td>9926</td>
+<td>6.8239 %</td>
+</tr>
+<tr class="odd">
+<td>SE</td>
+<td>10838</td>
+<td>7.4508 %</td>
+</tr>
+<tr class="even">
+<td>SSE</td>
+<td>9399</td>
+<td>6.4616 %</td>
+</tr>
+<tr class="odd">
+<td>SSW</td>
+<td>8156</td>
+<td>5.6070 %</td>
+</tr>
+<tr class="even">
+<td>SW</td>
+<td>9354</td>
+<td>6.4306 %</td>
+</tr>
+<tr class="odd">
+<td>W</td>
+<td>10110</td>
+<td>6.9504 %</td>
+</tr>
+<tr class="even">
+<td>WNW</td>
+<td>8874</td>
+<td>6.1006 %</td>
+</tr>
+<tr class="odd">
+<td>WSW</td>
+<td>9518</td>
+<td>6.5434 %</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="tabla-4.-raintoday" class="level3" data-number="7.2.4">
+<h3 data-number="7.2.4" class="anchored" data-anchor-id="tabla-4.-raintoday"><span class="header-section-number">7.2.4</span> Tabla 4. RainToday</h3>
+<table class="table">
+<thead>
+<tr class="header">
+<th>RainToday</th>
+<th>count</th>
+<th>percentage</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>NA</td>
+<td>3261</td>
+<td>2.2419 %</td>
+</tr>
+<tr class="even">
+<td>No</td>
+<td>110319</td>
+<td>75.8415 %</td>
+</tr>
+<tr class="odd">
+<td>Yes</td>
+<td>31880</td>
+<td>21.9167 %</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="tabla-5.-raintomorrow" class="level3" data-number="7.2.5">
+<h3 data-number="7.2.5" class="anchored" data-anchor-id="tabla-5.-raintomorrow"><span class="header-section-number">7.2.5</span> Tabla 5. RainTomorrow</h3>
+<table class="table">
+<thead>
+<tr class="header">
+<th>RainTomorrow</th>
+<th>count</th>
+<th>percentage</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>NA</td>
+<td>3267</td>
+<td>2.2460 %</td>
+</tr>
+<tr class="even">
+<td>No</td>
+<td>110316</td>
+<td>75.8394 %</td>
+</tr>
+<tr class="odd">
+<td>Yes</td>
+<td>31877</td>
+<td>21.9146 %</td>
+</tr>
+</tbody>
+</table>
+<p>En las Tablas 1, 2 y 3 se presentan las frecuencias asociadas a diversas características del viento. La Tabla 1 refleja la dirección del viento más predominante, mientras que la Tabla 2 se enfoca en la dirección del viento a las 9 de la mañana, y la Tabla 3 analiza la dirección del viento a las 3 de la tarde. Es importante tener en cuenta que estas variables también exhiben una dependencia significativa de la estación climática. Por lo tanto, nuestras observaciones se expresan en un contexto general, ya que las direcciones predominantes del viento pueden variar en estaciones climáticas aisladas en comparación con aquellas observadas en diferentes ubicaciones.</p>
+<p>Las Tablas 4 y 5 nos indican lo desbalanceada que está la variable respuesta de este problema de clasificación. Es evidente que podríamos realizar predicciones considerando que no lloverá al día siguiente, logrando una tasa de acierto superior al 75 %. Es decir, acertaríamos en 3 de cada 4 ocasiones. Nuestro principal objetivo radica en lograr una clasificación precisa de las clases, y no tanto en minimizar el error general aparente.</p>
+<p>La siguiente tabla nos indica los valores distintos de las variables categóricas que no habíamos introducido en la entrega 1. Vemos que tenemos 49 estaciones de lluvia, 3436 fechas distintas, las direcciones de viento están divididas en 16 secciones, la variable que nos indica si ha llovido hoy o no y por último la clase que indica si lloverá mañana o no.</p>
+</section>
+<section id="tabla-6.-valores-distintos-para-variables-categóricas" class="level3" data-number="7.2.6">
+<h3 data-number="7.2.6" class="anchored" data-anchor-id="tabla-6.-valores-distintos-para-variables-categóricas"><span class="header-section-number">7.2.6</span> Tabla 6. Valores distintos para variables categóricas</h3>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Variable</th>
+<th>Valores distintos</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Location</td>
+<td>49</td>
+</tr>
+<tr class="even">
+<td>Date</td>
+<td>3436</td>
+</tr>
+<tr class="odd">
+<td>WindGustDir</td>
+<td>16</td>
+</tr>
+<tr class="even">
+<td>WindDir9am</td>
+<td>16</td>
+</tr>
+<tr class="odd">
+<td>WindDir3pm</td>
+<td>16</td>
+</tr>
+<tr class="even">
+<td>RainToday</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td>RainTomorrow</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<p>Si dividimos 3436 entre 365 obtenemos la cantidad de años que tenemos recogidos, casi 9 años y medio. También si multiplicamos 49 por 3436 obtenemos un valor mayor al del total de las instacias del conjunto de datos, esto nos dice que hay fechas en las que alguna estación no recogió valores.</p>
+<p>Las variables con respecto al viento vemos que tienen 16 valores distintos, esto quiere decir que el círculo está dividido en 16 y aparecen valores como NNW(nornoroeste)</p>
+</section>
+<section id="correlaciones-entre-las-variables-categóricas" class="level3" data-number="7.2.7">
+<h3 data-number="7.2.7" class="anchored" data-anchor-id="correlaciones-entre-las-variables-categóricas"><span class="header-section-number">7.2.7</span> Correlaciones entre las variables categóricas</h3>
+<p>Con el objetivo de estudiar la relación entre las variables categóricas hemos realizado varias pruebas <span class="math inline">\(\chi^2\)</span> que expondremos a continuación.</p>
+<p><strong>RainToday-RainTomorrow</strong>: Hemos enfrentado las variables que nos indican si ha llovido y hemos obtenido un p-valor <span class="math inline">\(&lt;\)</span> 2.2e-16. Lo que sugiere que hay una fuerte asociación entre las variables. Es normal que ocurra esto, en general no llueve de manera aislada.</p>
+<p><strong>Date-RainTomorrow</strong>: Hemos enfrentado la fecha y la variable de respuesta y hemos obtenido un p-valor <span class="math inline">\(&lt;\)</span> 2.2e-16. Esta fuerte asociación entre las variables se debe a que habrá días y meses en los que será más o menos frecuente la lluvia.</p>
+<p><strong>RainToday-Location</strong>: Hemos realizado la prueba usando las variables RainToday Location y hemos obtenido un p-valor <span class="math inline">\(&lt;\)</span> 2.2e-16. Esta relación se debe a que dependiendo de la estación y el clima en concreto de la misma lloverá con mayor o con menor frecuencia.</p>
+<p><strong>WindGustDir-RainTomorrow</strong>: Hemos enfrentado las variables y hemos obtenido un p-valor <span class="math inline">\(&lt;\)</span> 2.2e-16. Es un hecho conocido que el viento influye en la climatología, tanto su precedencia como en este caso su fuerza, por eso obtenemos esta fuerte relación.</p>
+<p><strong>WindDir9am-WindDir3pm</strong>: Hemos enfrentado las variables y hemos obtenido un p-valor <span class="math inline">\(&lt;\)</span> 2.2e-16. Evidentemente el test nos indica que la dirección del viento a las 9 de la mañana está fuertemente relacionada con la dirección unas pocas horas después.</p>
+<p><strong>WindDir9am-WindGustDir</strong>: Hemos enfrentado las variables y hemos obtenido un p-valor <span class="math inline">\(&lt;\)</span> 2.2e-16. El objetivo de esta prueba era confirmar lo que ya se conoce, la fuerte relación entre el viento más fuerte y el viento a las 9 de la mañana.</p>
+<p><strong>RainTomorrow-WindGustDir</strong>: Hemos enfrentado la variable respuesta y la variable “WindGustDir” y hemos obtenido un p-valor <span class="math inline">\(&lt;\)</span> 2.2e-16. Esta prueba nos indica que están fuertemente correladas. Parece lógico pensar que dependiendo de lo fuerte que el viento mueva las nubes lloverá o no.</p>
+</section>
+</section>
+<section id="análisis-de-las-variables-numéricas" class="level2" data-number="7.3">
+<h2 data-number="7.3" class="anchored" data-anchor-id="análisis-de-las-variables-numéricas"><span class="header-section-number">7.3</span> Análisis de las variables numéricas</h2>
+<p>La primera tabla contiene el número de valores distintos, la media, la desviación típica, el mínimo y el máximo, valores clave en el análisis de datos.</p>
+<p>La siguiente nos indica la moda, el porcentaje de NA de cada una de las variables numéricas y el rango de validez de las mismas.</p>
+<section id="tabla-7.-estadísticas-para-diferentes-campos" class="level3" data-number="7.3.1">
+<h3 data-number="7.3.1" class="anchored" data-anchor-id="tabla-7.-estadísticas-para-diferentes-campos"><span class="header-section-number">7.3.1</span> Tabla 7. Estadísticas para diferentes campos</h3>
+<table class="table">
+<colgroup>
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Campo</th>
+<th>Valores Distintos</th>
+<th>Media</th>
+<th>Desviación Típica</th>
+<th>Mínimo</th>
+<th>Máximo</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>WindGustSpeed</td>
+<td>67</td>
+<td>40.04</td>
+<td>13.61</td>
+<td>6</td>
+<td>135</td>
+</tr>
+<tr class="even">
+<td>WindSpeed9am</td>
+<td>43</td>
+<td>14.04</td>
+<td>8.92</td>
+<td>0</td>
+<td>130</td>
+</tr>
+<tr class="odd">
+<td>WindSpeed3pm</td>
+<td>44</td>
+<td>18.66</td>
+<td>8.81</td>
+<td>0</td>
+<td>87</td>
+</tr>
+<tr class="even">
+<td>Humidity9am</td>
+<td>101</td>
+<td>68.88</td>
+<td>19.03</td>
+<td>0</td>
+<td>100</td>
+</tr>
+<tr class="odd">
+<td>Humidity3pm</td>
+<td>101</td>
+<td>51.54</td>
+<td>20.80</td>
+<td>0</td>
+<td>100</td>
+</tr>
+<tr class="even">
+<td>Cloud9am</td>
+<td>10</td>
+<td>4.45</td>
+<td>2.89</td>
+<td>0</td>
+<td>9</td>
+</tr>
+<tr class="odd">
+<td>Cloud3pm</td>
+<td>10</td>
+<td>4.51</td>
+<td>2.72</td>
+<td>0</td>
+<td>9</td>
+</tr>
+<tr class="even">
+<td>MinTemp</td>
+<td>389</td>
+<td>12.19</td>
+<td>6.40</td>
+<td>-8.5</td>
+<td>33.9</td>
+</tr>
+<tr class="odd">
+<td>MaxTemp</td>
+<td>505</td>
+<td>23.22</td>
+<td>7.12</td>
+<td>-4.8</td>
+<td>48.1</td>
+</tr>
+<tr class="even">
+<td>Rainfall</td>
+<td>681</td>
+<td>2.36</td>
+<td>8.48</td>
+<td>0.0</td>
+<td>371.0</td>
+</tr>
+<tr class="odd">
+<td>Evaporation</td>
+<td>358</td>
+<td>5.47</td>
+<td>4.19</td>
+<td>0.0</td>
+<td>145.0</td>
+</tr>
+<tr class="even">
+<td>Sunshine</td>
+<td>145</td>
+<td>7.61</td>
+<td>3.79</td>
+<td>0.0</td>
+<td>14.5</td>
+</tr>
+<tr class="odd">
+<td>Pressure9am</td>
+<td>546</td>
+<td>1017.65</td>
+<td>7.11</td>
+<td>980.5</td>
+<td>1041.0</td>
+</tr>
+<tr class="even">
+<td>Pressure3pm</td>
+<td>549</td>
+<td>1015.26</td>
+<td>7.04</td>
+<td>977.1</td>
+<td>1039.6</td>
+</tr>
+<tr class="odd">
+<td>Temp9am</td>
+<td>441</td>
+<td>16.99</td>
+<td>6.49</td>
+<td>-7.2</td>
+<td>40.2</td>
+</tr>
+<tr class="even">
+<td>Temp3pm</td>
+<td>502</td>
+<td>21.68</td>
+<td>6.94</td>
+<td>-5.4</td>
+<td>46.7</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="tabla-8.-moda-porcentaje-de-na-y-rango-de-validez" class="level3" data-number="7.3.2">
+<h3 data-number="7.3.2" class="anchored" data-anchor-id="tabla-8.-moda-porcentaje-de-na-y-rango-de-validez"><span class="header-section-number">7.3.2</span> Tabla 8. Moda, Porcentaje de NA y Rango de Validez</h3>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Campo</th>
+<th>Moda</th>
+<th>Porcentaje de NA</th>
+<th>Rango de Validez</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>MinTemp</td>
+<td>13</td>
+<td>1.02 %</td>
+<td>[-89.7, 56.7]</td>
+</tr>
+<tr class="even">
+<td>MaxTemp</td>
+<td>19.6</td>
+<td>0.87 %</td>
+<td>[-89.7, 56.7]</td>
+</tr>
+<tr class="odd">
+<td>Rainfall</td>
+<td>0</td>
+<td>2.24 %</td>
+<td>[0, 1500]</td>
+</tr>
+<tr class="even">
+<td>Sunshine</td>
+<td>0</td>
+<td>48.01 %</td>
+<td>[0, 20]</td>
+</tr>
+<tr class="odd">
+<td>WindSpeed9am</td>
+<td>13</td>
+<td>1.21 %</td>
+<td>[0, 372]</td>
+</tr>
+<tr class="even">
+<td>WindSpeed3pm</td>
+<td>17</td>
+<td>2.10 %</td>
+<td>[0, 372]</td>
+</tr>
+<tr class="odd">
+<td>Humidity9am</td>
+<td>68</td>
+<td>1.82 %</td>
+<td>[0, 100]</td>
+</tr>
+<tr class="even">
+<td>Humidity3pm</td>
+<td>52</td>
+<td>3.10 %</td>
+<td>[0, 100]</td>
+</tr>
+<tr class="odd">
+<td>Pressure9am</td>
+<td>1016.4</td>
+<td>10.36 %</td>
+<td>[920, 1080]</td>
+</tr>
+<tr class="even">
+<td>Pressure3pm</td>
+<td>1013.5 1014.8</td>
+<td>10.33 %</td>
+<td>[920, 1080]</td>
+</tr>
+<tr class="odd">
+<td>Cloud9am</td>
+<td>7</td>
+<td>7.65 %</td>
+<td>{0, 1, …, 8}</td>
+</tr>
+<tr class="even">
+<td>Cloud3pm</td>
+<td>7</td>
+<td>7.80 %</td>
+<td>{0, 1, …, 8}</td>
+</tr>
+<tr class="odd">
+<td>Temp9am</td>
+<td>16.6</td>
+<td>1.21 %</td>
+<td>[-89.7, 56.7]</td>
+</tr>
+<tr class="even">
+<td>Temp3pm</td>
+<td>18.4</td>
+<td>2.48 %</td>
+<td>[-89.7, 56.7]</td>
+</tr>
+</tbody>
+</table>
+<p>En el análisis de los datos, hemos validado el rango de validez para variables como <em>Humidity</em> y <em>Cloud</em> según sus definiciones. En el caso de variables como <em>MinTemp</em> o <em>Pressure9am</em>, hemos considerado como rango de validez los mínimos y máximos globales registrados. Gracias al código de Scala, hemos verificado que ninguna variable está fuera de su rango de validez.</p>
+<p>Además, al observar la media y la desviación estándar de algunas variables, podemos considerar que los valores máximos podrían ser <em>outliers</em>. Por ejemplo, en las variables <em>Rainfall</em> y <em>Evaporation</em>, esto podría deberse a eventos extremos como tormentas. Asimismo, la alta variación de temperaturas se explica por la extensión de Australia y la ubicación de las distintas estaciones en diferentes climas.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="imagenes/HistogramasVariablesNumericas.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Figura 4. Histograma de las diferentes variables numéricas.</figcaption>
+</figure>
+</div>
+<p>Al estudiar los histogramas, podemos agrupar las variables según la distribución a la que se aproximan.</p>
+<p><strong>Distribución normal</strong></p>
+<p>Las variables que siguen una distribución normal, debido a su forma de campana, son las relativas a la temperatura y a la presión: <em>MinTemp</em>, <em>MaxTemp</em>, <em>Temp9am</em>, <em>Temp3pm</em>, <em>Pressure9am</em> y <em>Pressure3pm</em>. También cabe mencionar que la variable <em>Humidity3pm</em> tiene una forma de campana, pero las colas no llegan a 0.</p>
+<p><strong>Distribución Weibull</strong></p>
+<p>Las variables relativas al viento siguen una distribución Weibull debido a su forma de campana con desplazamiento a la izquierda y cola hacia la derecha: <em>WindGustSpeed</em>, <em>WindSpeed9am</em> y <em>WindSpeed3pm</em>.</p>
+<p><strong>Distribución Valle</strong></p>
+<p>Las variables relativas a las nubes tienen una forma de valle, lo que indica que es probable que el cielo esté con pocas nubes o mayormente cubierto, pero menos probable que la mitad del cielo esté cubierto. Estas variables son <em>Cloud9am</em> y <em>Cloud3pm</em>.</p>
+<p><strong>Distribución concentrada en el 0</strong></p>
+<p>Las variables relativas a la lluvia en un día, <em>Rainfall</em> y <em>Evaporation</em>, están concentradas cerca del 0, ya que, como mencionamos antes, llueve aproximadamente 1 de cada 4 días.</p>
+<p><strong>Distribución sesgada a la derecha</strong></p>
+<p>Las variables <em>Humidity9am</em> y <em>Sunshine</em> están sesgadas a la derecha. La humedad tiene sus valores más altos a primera hora de la mañana, si no tenemos en cuenta si ha llovido o no. Por otro lado, las horas de sol están sesgadas hacia la derecha debido a que tienen una duración estándar.</p>
+</section>
+<section id="correlaciones-entre-las-variables-numéricas" class="level3" data-number="7.3.3">
+<h3 data-number="7.3.3" class="anchored" data-anchor-id="correlaciones-entre-las-variables-numéricas"><span class="header-section-number">7.3.3</span> Correlaciones entre las variables numéricas</h3>
+<p>A continuación vemos una matriz de correlaciones de las variables numéricas que estamos utilizando (figura 5). Nos fijaremos sobre todo en los valores extremos.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="imagenes/MatrizCorrelaciones.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Figura 5. Histograma de las diferentes variables numéricas.</figcaption>
+</figure>
+</div>
+<p>Podemos ver que las variables relacionadas con la temperatura están muy correladas entre sí y, en particular, la temperatura máxima está relacionada con la humedad y la presión. Así como las variables que nos aportan datos del viento. Por otro lado, la variable <em>Sunshine</em> está muy correlada con la cantidad de nubes <em>Cloud9am</em> y <em>Cloud3pm</em> y también con la humedad.</p>
+<p>Cabe estudiar la existencia de atributos redundantes a partir de esta tabla. Si dos atributos tienen una correlación similar con el resto de variables, ambos aportarán una información similar. Para llevar a cabo esta comparación basta con observar si las columnas y las filas asociadas al par de atributos de interés son similares.</p>
+<p>Tal y como cabría esperar, los atributos que cuantifican la misma magnitud en diferentes momentos del día presentan correlaciones extremadamente similares con el resto de atributos. En particular, <em>Humidity9am</em> y <em>Humidity3pm</em>, aun siendo los dos atributos que menos similitud presentan de los anteriormente mencionados, son grandes candidatos a ser modificados en la etapa de procesamiento del dato. Asimismo, los tres atributos relativos a la velocidad del viento presentan una muy clara redundancia.</p>
+<p>Por otro lado, los atributos <em>MinTemp</em> y <em>MaxTemp</em> son bastante similares, pero presentan diferencias notables en sus correlaciones con parte de los demás atributos. Es por ello que hemos considerado que el estudio de su redundancia puede ser más esclarecedor una vez se introduzca el modelo. Esta misma apreciación es también aplicable a la relación de los dos atributos anteriores con <em>Temp9am</em> y <em>Temp3pm</em>.</p>
+</section>
+</section>
+<section id="análisis-de-las-precipitaciones-a-lo-largo-del-año" class="level2" data-number="7.4">
+<h2 data-number="7.4" class="anchored" data-anchor-id="análisis-de-las-precipitaciones-a-lo-largo-del-año"><span class="header-section-number">7.4</span> Análisis de las precipitaciones a lo largo del año</h2>
+<p>Se presenta el histograma de la cantidad de registros del conjunto de datos para cada fecha (figura 6).</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="imagenes/RegPorFecha.jpeg" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Figura 6. Histograma de la cantidad de registros del conjunto de datos para cada fecha.</figcaption>
+</figure>
+</div>
+<p>Hemos optado por realizar un análisis anual de las precipitaciones para determinar, por ejemplo, las probabilidades de precipitación según el mes del año. Aunque se podría afinar este análisis diariamente, se expondrán a continuación los desafíos que presenta esta aproximación en esta etapa del proyecto.</p>
+<p>El conjunto de datos abarca el período de 2007 a 2017, específicamente, desde el 1 de noviembre de 2007 hasta el 25 de junio de 2017. Esta franja temporal corresponde a un total de 3.525 días. Sin embargo, al verificar la cantidad de días recogidos en el conjunto de datos, el resultado es de 3.436 días. Es decir, hay 89 días sin información, lo que representa el 2,5% del total.</p>
+<section id="cantidad-de-registros-por-estación-meteorológica" class="level3" data-number="7.4.1">
+<h3 data-number="7.4.1" class="anchored" data-anchor-id="cantidad-de-registros-por-estación-meteorológica"><span class="header-section-number">7.4.1</span> Cantidad de Registros por Estación Meteorológica</h3>
+<p>La siguiente tabla muestra la cantidad de registros por estación meteorológica desde 2009 hasta 2017.</p>
+<section id="tabla-9.-registros-por-estación" class="level4" data-number="7.4.1.1">
+<h4 data-number="7.4.1.1" class="anchored" data-anchor-id="tabla-9.-registros-por-estación"><span class="header-section-number">7.4.1.1</span> Tabla 9. Registros por estación</h4>
+<table class="table">
+<colgroup>
+<col style="width: 21%">
+<col style="width: 10%">
+<col style="width: 26%">
+<col style="width: 10%">
+<col style="width: 21%">
+<col style="width: 10%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Location</th>
+<th>count</th>
+<th>Location</th>
+<th>count</th>
+<th>Location</th>
+<th>count</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Adelaide</td>
+<td>3009</td>
+<td>Melbourne</td>
+<td>3009</td>
+<td>Sydney</td>
+<td>3009</td>
+</tr>
+<tr class="even">
+<td>Albany</td>
+<td>3009</td>
+<td>MelbourneAirport</td>
+<td>3009</td>
+<td>SydneyAirport</td>
+<td>3009</td>
+</tr>
+<tr class="odd">
+<td>Albury</td>
+<td>3009</td>
+<td>Mildura</td>
+<td>3009</td>
+<td>Townsville</td>
+<td>3009</td>
+</tr>
+<tr class="even">
+<td>AliceSprings</td>
+<td>3009</td>
+<td>Moree</td>
+<td>3009</td>
+<td>Tuggeranong</td>
+<td>3008</td>
+</tr>
+<tr class="odd">
+<td>BadgerysCreek</td>
+<td>3009</td>
+<td>MountGambier</td>
+<td>3009</td>
+<td>Uluru</td>
+<td>1578</td>
+</tr>
+<tr class="even">
+<td>Ballarat</td>
+<td>3009</td>
+<td>MountGinini</td>
+<td>3009</td>
+<td>WaggaWagga</td>
+<td>3009</td>
+</tr>
+<tr class="odd">
+<td>Bendigo</td>
+<td>3009</td>
+<td>Newcastle</td>
+<td>3008</td>
+<td>Walpole</td>
+<td>3006</td>
+</tr>
+<tr class="even">
+<td>Brisbane</td>
+<td>3009</td>
+<td>Nhil</td>
+<td>1578</td>
+<td>Watsonia</td>
+<td>3009</td>
+</tr>
+<tr class="odd">
+<td>Cairns</td>
+<td>3009</td>
+<td>NorahHead</td>
+<td>3004</td>
+<td>Williamtown</td>
+<td>3009</td>
+</tr>
+<tr class="even">
+<td>Canberra</td>
+<td>3009</td>
+<td>NorfolkIsland</td>
+<td>3009</td>
+<td>Witchcliffe</td>
+<td>3009</td>
+</tr>
+<tr class="odd">
+<td>Cobar</td>
+<td>3009</td>
+<td>Nuriootpa</td>
+<td>3009</td>
+<td>Wollongong</td>
+<td>3009</td>
+</tr>
+<tr class="even">
+<td>CoffsHarbour</td>
+<td>3009</td>
+<td>PearceRAAF</td>
+<td>3009</td>
+<td>Woomera</td>
+<td>3009</td>
+</tr>
+<tr class="odd">
+<td>Dartmoor</td>
+<td>3009</td>
+<td>Penrith</td>
+<td>3008</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Darwin</td>
+<td>3009</td>
+<td>Perth</td>
+<td>3009</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>GoldCoast</td>
+<td>3009</td>
+<td>PerthAirport</td>
+<td>3009</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Hobart</td>
+<td>3009</td>
+<td>Portland</td>
+<td>3009</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Katherine</td>
+<td>1578</td>
+<td>Richmond</td>
+<td>3009</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Launceston</td>
+<td>3009</td>
+<td>Sale</td>
+<td>3009</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>En la etapa de tratamiento de los datos, asumimos la periodicidad anual y cierta semejanza entre días y meses cercanos. Aunque los 89 días sin información no están distribuidos homogéneamente en casi 10 años, su ausencia no debería ser relevante tras un correcto tratamiento de los datos.</p>
+</section>
+</section>
+<section id="análisis-de-ausencias-y-distribución-temporal" class="level3" data-number="7.4.2">
+<h3 data-number="7.4.2" class="anchored" data-anchor-id="análisis-de-ausencias-y-distribución-temporal"><span class="header-section-number">7.4.2</span> Análisis de Ausencias y Distribución Temporal</h3>
+<p>En la figura 6, el histograma representa el número de estaciones diferentes donde se ha realizado una medición en la fecha indicada. Se observa una falta significativa de datos en los años anteriores a 2009 y notables ausencias de datos continuos en 2011, 2012 y 2013.</p>
+<p>En el subconjunto de años 2009 a 2017, el número total de días considerados es de 3.097, y se tiene registro de 3.009 de ellos. Aproximadamente el 2,8% de los días no tienen registro de ninguna estación meteorológica. Aunque en este subconjunto se agrupan casi todos los registros faltantes, hay mediciones de al menos 45 estaciones meteorológicas todos los días.</p>
+<p>Esto lleva a la conclusión de que sería conveniente considerar solo los datos entre 2009 y 2017 para un análisis anual de las precipitaciones. Se plantea también el tratamiento de los registros ausentes como <em>missing values</em>, al menos en dicho análisis.</p>
+</section>
+<section id="diferencia-de-precipitaciones-en-distintas-ubicaciones" class="level3" data-number="7.4.3">
+<h3 data-number="7.4.3" class="anchored" data-anchor-id="diferencia-de-precipitaciones-en-distintas-ubicaciones"><span class="header-section-number">7.4.3</span> Diferencia de Precipitaciones en Distintas Ubicaciones</h3>
+<p>En la figura 7, se visualiza la diferencia de precipitaciones a lo largo del 2016 en tres ubicaciones distintas: Darwin al norte, Melbourne al sureste y Perth al oeste.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="imagenes/PrecipitacionDistintasZonas.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Figura 7. Precipitaciones a lo largo de 2016.</figcaption>
+</figure>
+</div>
+<p>Finalmente, la próxima etapa del proyecto abordará el tratamiento de los datos y proporcionará una gráfica de las precipitaciones medias por mes, así como la determinación de las posibilidades de precipitación a priori.</p>
+</section>
+</section>
+</section>
+<section id="conclusiones-entrega-1" class="level1" data-number="8">
+<h1 data-number="8"><span class="header-section-number">8</span> Conclusiones Entrega 1</h1>
+<p>Tras realizar esta observación del conjunto de datos nos hemos dado cuenta de los problemas que tendremos que afrontar en las siguientes fases.</p>
+<p>Tendremos que estudiar el problema de los valores ausentes que aparecen en gran proporción en algunas variables. Una posible solución será eliminar del conjunto de datos o rellenar esos valores de alguna forma. También queda pendiente estudiar los máximos y mínimos para confirmar si son o no <em>outliers</em> una vez que tratemos los datos. Los atributos redundantes analizados también serán objeto de transformación o eliminación en la próxima</p>
+<p>A su vez tendremos que profundizar en la climatología de Australia para resolver el inconveniente que generan las estaciones meteorológicas aisladas debido a la gran extensión de la isla. Al incluirlas en un árbol de decisión podríamos estar sobreajustando y tal vez su estudio sea mejor realizarlo de manera independiente.</p>
+<p>Por último, a la hora de evaluar nuestros modelos tendremos que tener cuidado con las clases desbalanceadas. Como objetivos nos podemos plantear superar la predicción que tendríamos si predijesemos que nunca va a llover mañana.</p>
+</section>
+<section id="limpieza-selección-transformación-y-creación-de-un-primer-modelo" class="level1" data-number="9">
+<h1 data-number="9"><span class="header-section-number">9</span> Limpieza, selección, transformación y creación de un primer modelo</h1>
+<section id="consideraciones-previas" class="level2" data-number="9.1">
+<h2 data-number="9.1" class="anchored" data-anchor-id="consideraciones-previas"><span class="header-section-number">9.1</span> Consideraciones previas</h2>
+<p>Siguiendo la metodología CRISP-DM, previamente a la transformación de los datos es necesario comprender en profundidad el problema a tratar. Es por ello que hemos realizado una busqueda bibliográfica con el fin de poder tratar los datos de manera adecuada.</p>
+<p>En la Sección 3.4 de <em>Cullen</em> se dan indicaciones sobre la parametrización de un modelo meteorológico generalista. Dichas indicaciones permiten hacerse una idea de los atributos más influyentes en las variaciones climáticas y, en particular, en las precipitaciones.</p>
+<p>En primer lugar, la localización es un atributo extremadamente relevante, tanto es así que incluso convendría tener en cuenta las condiciones meteorológicas en estaciones vecinas para poder hacer predicciones precisas. Esto no es posible con un árbol de decisión si no se realizan profundas transformaciones en el dataset, pero sí es posible introducir manualmente una variable con la zona climática, descomponer la ubicación en longitud y latitud o hacer un <em>clustering</em> para crear un nuevo atributo. En esta etapa hemos intentado hacer un <em>clustering</em>, ya que no aumenta la dimensionalidad tanto como la opción de las coordenadas y permite crear grupos más parecidos que la zona climática, pues pese a que dos estaciones tengan un clima semejante, si están separadas 1.000 km el tiempo no va a estar extremadamente correlado día a día. Desgraciadamente no hemos sido capaces de llevarlo a cabo para esta entrega, pero seguramente lo hagamos de cara a la siguiente ya que dispondremos de más tiempo. De hecho, en posteriores modelos es posible que se opte por probar con una aplicación conjunta del <em>clustering</em> y las consideraciones anteriores.</p>
+<p>El citado artículo también da cuenta de la relevancia de la temperatura y la humedad en el proceso de formación de nubes. Por el contrario, la cantidad de nubes no parece ser un parámetro especialmente relevante, sino que su composición, el tipo de nube o la evolución de la misma son mucho más determinantes. Desgraciadamente nuestro conjunto no dispone de tales datos, como mucho se puede intuir que los días en los que el cielo está completamente cubierto hay mayor probabilidad de que la nube sea un estrato o un cumulonimbo. En cualquier caso, a tenor de la literatura consultada, no consideramos que sea un atributo que aporte información sustancial sobre las precipitaciones del día siguiente, menos aún teniendo en cuenta la cantidad de datos faltantes que presenta.</p>
+<p>En el proceso de formación de nubes de lluvia intervienen con especial relevancia la evaporación y el viento, tal y como se describe en <em>Gregory</em>. En dicha publicación se ahonda en un modelo descriptivo de los procesos de convección responsables de la evolución nubosa. En cuanto al viento cabe decir que es extremadamente importante su relación con la localización, pues los vientos provinientes del mar suelen arrastrar humedad y condiciones favorables para la aparición de precipitaciones. De hecho, en el citado artículo se indica incluso la importancia de las condiciones del mar tales como la temperatura en la superficie o la temperatura del propio agua. Si bien no disponemos de tanta información en nuestro conjunto de datos, sí cabe considerar la importancia de la dirección y velocidad del viento así como los diferentes valores de temperatura.</p>
+<p>Tal y como se vió en la etapa anterior, la evaporación está negativamente correlada con la humedad, de hecho sus correlaciones con el resto de variables son opuestas (figura 5). Físicamente está influida por la temperatura y, en menor medida, por la presión pues ambas condicionan la presión de vapor, que determina el punto de evaporación. Esto permite justificar la eliminación de la evaporación en el conjunto de datos desde un punto de vista puramente meteorológico.</p>
+<p>Por último, la presión, muy relevante en la previsión meteorológica no tiene por qué ser tan relevante en nuestro caso particular, pues en los modelos meteorológicos como el descrito en <em>Hudson</em> tienen en cuenta su variación y no su valor en un instante concreto. La citada publicación describe, precisamente, el modelo meteorológico utilizado actualmente por la agencia meteorológica de Australia. Tras una consulta del mismo podemos preveer que nuestro modelo no tenga una muy elevada capacidad predictiva ya que la inmensa mayoría de datos considerados son relaciones entre las mediciones de distintas estaciones meteorológicas o la evolución de dichas medidas. Para intentar adecuarse a estas consideraciones, en futuras etapas de este proyecto se valorará la posibilidad de incluir nuevos atributos que contengan la evolución de la presión en los últimos días o la diferencia de temperatura de una estación con respecto a la media de las de su mismo cluster, por ejemplo.</p>
+<p>Comprendemos que la naturaleza del método a implementar (árboles de decisión) y las características del <em>dataset</em> pueden provocar que los factores determinantes para la predicción sean diferentes a las tratadas en este epígrafe. En cualquier caso, siguiendo la metodología expuesta en clase, hemos considerado necesario documentarnos e incluir esta información previamente al tratamiento de datos.</p>
+</section>
+<section id="conjuntos-de-entrenamiento-y-prueba" class="level2" data-number="9.2">
+<h2 data-number="9.2" class="anchored" data-anchor-id="conjuntos-de-entrenamiento-y-prueba"><span class="header-section-number">9.2</span> Conjuntos de entrenamiento y prueba</h2>
+<p>Hemos dividido el <em>dataset</em> de manera aleatoria en dos partes. El conjunto de entrenamiento constituye el 70% de los registros del conjunto de datos mientras que el conjunto de prueba representa el 30%.</p>
+<p>Así pues, de ahora en adelante, cada vez que se haga referencia en esta memoria a una modificación del conjunto de datos se entiende que se realiza paralelamente en el conjunto de entrenamiento y en el conjunto de prueba.</p>
+</section>
+<section id="limpieza-de-datos" class="level2" data-number="9.3">
+<h2 data-number="9.3" class="anchored" data-anchor-id="limpieza-de-datos"><span class="header-section-number">9.3</span> Limpieza de datos</h2>
+<p>Tal y como se vió en la etapa previa, nuestro conjunto de datos no contiene registros vacíos o inválidos, por tanto, la limpieza se fundamenta en el análisis de los valores de cada atributo.</p>
+<p>En la figura 3 se observa cómo la mitad de valores del atributo <em>Sunshine</em> son <em>Na</em> y, en menor medida, <em>Evaporation</em>, <em>Cloud3pm</em> y <em>Cloud9am</em> presentan un número altísimo de <em>missing values</em>. La proporción de valores ausentes es tan elevada que hemos considerado oportuno eliminar las variables pues, como hemos visto, tampoco tienen especial relevancia desde el punto de vista meteorológico.</p>
+<p>Tal y como se verá en la próxima sección, las variables categóricas consideradas son <em>WindGustDir</em>, <em>RainToday</em> y <em>RainTomorrow</em>. En cuanto a la primera, sus valores están uniformemente distribuidos, es por ello que no considerábamos oportuno sustituir los valores faltantes por uno de ellos en particular. Dado que la cantidad de <em>Na</em> es baja hemos decidido eliminar los registros.</p>
+<p>En total se han eliminado 18.620 instancias en el proceso de limpieza. Es decir <span class="math inline">\(\mathrm{NTAIE}=18.620\)</span>, que en términos relativos se corresponde con el valor 0,128.</p>
+</section>
+<section id="selección-atributos" class="level2" data-number="9.4">
+<h2 data-number="9.4" class="anchored" data-anchor-id="selección-atributos"><span class="header-section-number">9.4</span> Selección atributos</h2>
+<p>El uso de un árbol de decisión aumenta la relevancia de este apartado del diseño del modelo. Los árboles de decisión suelen conducir a mejores resultados cuando la dimensionalidad del conjunto de datos es reducida, sobre todo teniendo en cuenta que el árbol tiene profundidad 5. Consecuentemente cobra sentido la documentación realizada sobre meteorología, permitiendo una reducción manual de la dimensionalidad fundamentada, referenciando a estudios científicos sobre el tema.</p>
+<p>Como ya se ha indicado, no hemos considerado las variables <em>Sunshine</em>, <em>Evaporation</em>, <em>Cloud9am</em> y <em>Cloud3pm</em> por su gran cantidad de valores ausentes y su poca relevancia desde el punto de vista meteorológico.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="imagenes/MatrizCorrelaciones.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Figura 8. Histograma de las diferentes variables numéricas.</figcaption>
+</figure>
+</div>
+<p>En la figura 8 se observa cómo hay una cantidad notable de atributos redundantes, pues no solo están notablemente correlados con algún otro, sino que las correlaciones de ambos con el resto de atributos son similares (u opuestas en el caso de correlación negativa). Este es el motivo de no considerar las variables <em>MaxTemp</em>, <em>WindSpeed9am</em>, <em>WindSpeed3pm</em>, <em>Humidity9am</em> y <em>Pressure9am</em>.</p>
+<p>Se ha preferido conservar las variables con mediciones más próximas al día siguiente, es decir, aquellas terminadas en <em>3pm</em>. En cuanto a la velocidad del viento, se ha conservado la velocidad máxima por ser la más general.</p>
+<p>Es cierto que todas los atributos de temperatura presentan una elevada correlación entre ellos pero cada uno tiene distintas correlaciones con el resto de variables. Por otro lado, en cuanto a meteorología es lógico conservar tres variables de temperatura pues en todos los documentos referenciados se hace hincapié en la relevancia de esta magnitud sobre el clima. El que sí se ha eliminado es <em>MaxTemp</em>, ya que la inmensa mayoría de los días la temperatura máxima se da a las 3pm y así lo muestra la Figura 8, en términos de correlaciones.</p>
+<p>Argumentos análogos a los anteriores, considerando la alta correlación entre las variables de dirección del viento dada por el test <span class="math inline">\(\chi^2\)</span> de la entrega anterior justifican la eliminación de <em>WindDir9am</em> y <em>WindDir3pm</em>.</p>
+<p>La variable <em>Rainfall</em> no se ha eliminado dado que tiene una muy baja correlación con el resto de variables numéricas. Si bien es cierto que está fuertemente correlada con el atributo <em>RainToday</em> aporta información que difícilmente se puede extraer del resto de mediciones pues no es lo mismo una lluvia ligera a que precipitaciones torrenciales. Cabe destacar que los modelos meteorológicos consultados no hacen referencia a la cantidad de precipitaciones pero esto se debe a que son mucho más precisos y se basan en el análisis dinámico de la atmósfera. Es decir, tienen en cuenta la evolución de la misma tanto en el tiempo como en el espacio, lo cual escapa al modelo que nosotros planteamos. Precisamente <em>Rainfall</em> compensa en ciertos casos esa falta de información dinámica pues la cantidad de precipitaciones está ligada al tipo de nube que las provoca, dato al cuál no se tiene acceso de ninguna otra manera. Sencillamente, si llueve mucho un día, será más probable que llueva también al siguiente que si llueve poco.</p>
+<p>Analizando ahora las variables categóricas, tanto <em>RainToday</em> como <em>WindGustDir</em> no han sido eliminadas por estar fuertemente correladas con <em>RainTomorrow</em> y, en consecuencia, tener gran capacidad predictiva.</p>
+<p>Las variables <em>Day</em> y <em>Month</em> también se han utilizado en el modelo, deshechando la información que aporta el año por considerarla poco relevante desde nuestro punto de vista. Consideramos que la fecha aporta una gran cantidad de información pero por el caracter estacional de las precipitaciones; el año, a lo sumo, puede aportar información sobre la tendencia de las precipitaciones en el largo plazo, pero no creemos que se pueda extraer tal tendencia a partir de una muestra de 10 años.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="imagenes/atrfinales.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Figura 9. Matriz de correlaciones</figcaption>
+</figure>
+</div>
+<p>En conclusión, los atributos seleccionados son los siguientes: <em>Location</em>, <em>Day</em>, <em>Month</em>, <em>MinTemp</em>, <em>Temp9am</em>, <em>Temp3pm</em>, <em>WindGustDir</em>, <em>WindGustSpeed</em>, <em>Humidity3pm</em>, <em>Pressure3pm</em>, <em>Rainfall</em> y <em>RainToday</em></p>
+</section>
+<section id="transformación-de-datos" class="level2" data-number="9.5">
+<h2 data-number="9.5" class="anchored" data-anchor-id="transformación-de-datos"><span class="header-section-number">9.5</span> Transformación de datos</h2>
+<p>Para comenzar este epígrafe queremos discutir el tratamiento de los <em>outliers</em>. La decisión tomada es no transformarlos ni eliminarlos. Esto se debe a las enormes variaciones que se dan en el clima australiano, que pueden provocar eventos extremos que den lugar a <em>outliers</em>. El problema es que muchos eventos extremos como El Niño o La Niña son cíclicos (ver <em>Hudson</em>) y el modelo debe ser capaz de predecirlos. De hecho, es tal la cantidad de ciclos meteorológicos que se dan tanto en el Pacífico como en el Índico que la mayoría de estaciones meteorológicas se ven afectadas por su periodicidad, haciendo imposible determinar qué datos deben ser tratados como <em>outliers</em> y cuáles no, al menos con el nivel de profundización en el tema asumible en este proyecto.</p>
+<p>Tal y como se ha indicado anteriormente, hemos separado la variable <em>Date</em> en tres atributos referentes al día, el mes y el año para posteriormente utilizar los dos primeros.</p>
+<p>Los <em>missing values</em> de las variables <em>RainToday</em> y <em>RainTomorrow</em> se han sustituido directamente por <em>No</em>. Esta decisión la hemos tomado basándonos en que la inmensa mayoría de valores son negativos y en que la cantidad de valores faltantes es pequeña.</p>
+<p>Somos conscientes de las repercusiones que puede tener una transformación semejante en conjuntos de datos con clases muy desbalanceadas. Es por ello que esta decisión se ha tomado tras una reflexión sobre el origen de los <em>Na</em>. Consultando la fuente del conjunto de datos se puede constatar que las variables que nos atañen se han obtenido a partir del atributo <em>Rainfall</em> de manera automática. Por tanto, la inexistencia de valores para <em>RainToday</em> y <em>RainTomorrow</em> es consecuencia de la inexistencia de los de <em>Rainfall</em> y cabe preguntarse por qué no se tiene una medida de las precipitaciones esos días.</p>
+<p>Australia es un país en el que se produce una cantidad notable de eventos climáticos extremos y, por ello, la agencia meteorológica está preparada para ello e intenta recavar la mayor cantidad de información posible sobre ellos. Es por ello que cabe pensar que las medidas de los pluviómetros son más valiosas los días que llueve y por ello intentarán tomarlas a toda costa, por ejemplo, dejando su mantenimiento para temporadas con probabilidad casi nula de lluvia. Consecuentemente, es razonable pensar que una medida <em>Na</em> se puede sustituir por un <em>No</em> asumiendo que las medidas correspondientes a los valores faltantes tienen una proporción ínfima de <em>Yes</em>, notablemente menor que el resto de registros.</p>
+<p>Por último, los <em>missing values</em> de las variables numéricas han sido sustituidas por la moda dado que, tal y como se comprobó en la anterior etapa, sus distribuciones son centradas y apuntadas por lo general. En cualquier caso, para las posteriores entregas se valorará una posible sustitución más adecuada en cada atributo particular.</p>
+<p>Nos hemos planteado también la conversión de las direcciones del viento a dos atributos: el seno y el coseno del ángulo. Este tipo de transformaciones, así como el <em>clustering</em> o la sustitución de los valores numéricos faltantes requieren de una inversión de tiempo que posterga su inclusión en el proyecto aunque nos hubiera gustado comprobar su eficacia en esta etapa. En cualquier caso, el uso de un modelo más simple en esta etapa permite tener un buen baremo de comparación en</p>
+</section>
+<section id="evaluación-del-modelo" class="level2" data-number="9.6">
+<h2 data-number="9.6" class="anchored" data-anchor-id="evaluación-del-modelo"><span class="header-section-number">9.6</span> Evaluación del modelo</h2>
+<p>Tras entrenar el modelo con los datos de entrenamiento y evaluar el rendimiento con los datos de prueba obtenemos los siguientes resultados:</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Métrica</th>
+<th>Valor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Tasa de Acierto</td>
+<td>0.830</td>
+</tr>
+<tr class="even">
+<td>Error</td>
+<td>0.170</td>
+</tr>
+</tbody>
+</table>
+<p>Como vimos anteriormente el valor relativo de NTAIE era 0,128 que es menor al error obtenido. # Conclusiones entrega 2 El modelo desarrollado tiene una tasa de acierto de 0,830 mientras que en el conjunto de prueba encontramos una distribución de clases de 0,775 <em>No</em> y 0,225 <em>Yes</em> obviando los <em>missing values</em>. Esto significa que el modelo mejora en más de 5 puntos porcentuales la tasa de acierto con respecto a una predicción basada en decir que no va a llover mañana independientemente de las mediciones.</p>
+<p>En conjuntos con clases tan desbalanceadas es complicado hacer grandes mejoras en la tasa de error, por lo que el resultado obtenido es razonable. Como cabría esperar, dista mucho de los modelos meteorológicos utilizados en la práctica, que alcanzan tasas de acierto superiores a 0,950 pero en ningún caso se espera alcanzar una tasa próxima siquiera. Esto se debe, entre otras cosas, a que no disponemos de datos suficientes para describir los fenómenos climatológicos que provocan precipitaciones, condicionados por un gran número de factores dinámicos y sus variaciones en tiempo y espacio.</p>
+<p>Además, la distribución de clases particular de este <em>dataset</em> hace que la tasa de error no sea un evaluador especialmente descriptivo, con lo que es razonable esperar a futuras entregas para evaluar en profundidad del clasificador que hemos desarrollado.</p>
+<p>En esta etapa del proceso se ha conseguido desarrollar un modelo simple con capacidad predictiva para el problema dado que puede servir en etapas futuras como vara de medir. Así pues, en futuras entregas se intentará mejorar el modelo. Para ello hemos planteado el uso de <em>clustering</em>, de la información sobre las zonas climáticas australianas, la proximidad entre estaciones y las variaciones de presión, entre otros. Queremos destacar el caso del <em>clustering</em> con el objetivo de agrupar las variables que tengan un clima similar, que ha quedado a medias por falta de tiempo y se incluirá casi con total seguridad. Otras transformaciones pendientes, que probablemente se incluyan, son la transformación del día y el mes en una variable que dé cuenta de en qué momento del año nos encontramos, transformar las direcciones del viento en seno y coseno y aplicar algún método de sustitución como una regresión para reducir el número de instancias eliminadas.</p>
+</section>
+</section>
+<section id="creación-selección-y-evaluación-de-modelos" class="level1" data-number="10">
+<h1 data-number="10"><span class="header-section-number">10</span> Creación, selección y evaluación de modelos</h1>
+<section id="clusterización" class="level2" data-number="10.1">
+<h2 data-number="10.1" class="anchored" data-anchor-id="clusterización"><span class="header-section-number">10.1</span> Clusterización</h2>
+<p>Previo a introducir el grueso del contenido de esta entrega hemos considerado necesario explicar la motivación y análisis del <em>clustering</em> que se ha comentado en las anteriores etapas del proyecto.</p>
+<p>La idea del clustering surge de considerar que, al igual que el clima de Santander no tiene que ver con el clima de Andalucía, en Australia, debido al incremento de distancias, esta diferencia entre zonas se magnifica. Esto es lo que nos ha motivado a agrupar las distintas estaciones despendiendo de su clima.</p>
+<p>Si bien la introducción manual de la zona climática a la que pertenece cada estación es una opción razonable a la hora de identificar las tendencias que siguen las precipitaciones, hemos considerado prioritario realizar una clusterización de la columna <em>Location</em>. Por un lado, es una consideración con una mayor aplicabilidad dentro de la metodología que se ha aprendido en la asignatura ya que en este caso particular son únicamente 49 localizaciones diferentes, pero para conjuntos de datos más grandes identificar manualmente el clima de cada estación puede pasar de ser una tarea tediosa a ser una tarea potencialmente inviable. Por otro lado, las zonas climáticas de que se dispone se extraen de lo que se conocen como mapas de clasificación de Köppen. Estos mapas son de aplicación global, luego los climas que consideran son generales y pueden variar notablemente dentro de Australia. Es por ello que hemos rechazado la idea de la identificación manual.</p>
+<p>Así pues, para la realización del <em>clustering</em> se han seleccionado los atributos más relevantes del conjunto de datos para calcular sus promedios y aplicar un algoritmo de k-medias. Dichas variables son:</p>
+<ul>
+<li>Promedio temperatura 9am.</li>
+<li>Promedio temperatura 3pm.</li>
+<li>Temperatura mínima.</li>
+<li>Promedio temperatura mínima diaria.</li>
+<li>Promedio cantidad de lluvia diaria.</li>
+<li>Promedio humedad 3pm.</li>
+<li>Promedio presión 3pm.</li>
+<li>Suma días de lluvia.</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="imagenes/ZonasAustralia.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Figura 10. Zonas climáticas de Australia.</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="imagenes/LluviasAustralia.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Figura 11. Estacionalidad de las lluvias en Australia.</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="imagenes/ClusterAustralia.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Figura 12. Estaciones meteorológicas del dataset.</figcaption>
+</figure>
+</div>
+<p>Atendiendo al dibujo ya introducido en el primer entregable (Figura 10) hemos decidido tomar 4 <em>clusters</em> que deberían reducir los tipos de clima así como agrupar climas parecidos. Precisamente el resultado obtenido se muestra en la Figura 12, que permite una comparación rápida de los <em>clusters</em> con las zonas climáticas. Además, se incluye la Figura 11, que a su vez permite cotejar los resultados obtenidos con la estacionalidad de las lluvias.</p>
+<p>Los dos mapas climáticos han sido extraídos directamente de la web del Bureau of Meteorology of Australia <em>Bureau</em>. Por otro lado, en la Figura 12 el color de la chincheta representa el <em>cluster</em> al que pertenece la estación meteorológica.</p>
+<p>Las gráficas siguientes permiten intuir la relación que guardan las estaciones de un mismo <em>cluster</em>. Asimismo, lo razonable de su interpretación sirve de aval a la hora de asumir que el <em>clustering</em> se ha realizado correctamente.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="imagenes/raintemp.jpeg" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Figura 13. Representación de las diferentes estaciones tomando sus precipitaciones frente a su temperatura máxima.</figcaption>
+</figure>
+</div>
+<p>En la figura 13 se observa cómo existe una aparente relación entre la temperatura máxima y las precipitaciones de las estaciones que están agrupadas. De hecho el <em>cluster</em> 4 podría corresponderse con zonas con un clima más desértico (pocas precipitaciones y altas temperaturas); el 1 y el 2 presentan precipitaciones notables y altas temperaturas, lo cual podría asimilarse a los climas tropicales y subtropicales, y, por último, el <em>cluster</em> número 3 agrupa lugares con precipitaciones débiles.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="imagenes/mintempmaxtemp.jpeg" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Figura 14. Representación de las diferentes estaciones tomando su temperatura mínima frente a su temperatura máxima.</figcaption>
+</figure>
+</div>
+<p>En la representación de la figura 14 no es tan clara la disgregación de los <em>clusters</em>, pero sí parece separar las estaciones con temperaturas más extremas de las demás. Aparentemente las ubicaciones con temperaturas mínimas más altas se agrupan en dos <em>clusters</em> mientras que aquellas con temperaturas altas mayores lo hacen en los otros dos. Esto no deja de ser curioso pues, al menos para personas con conocimientos muy limitados de meteorología como es nuestro caso, parecería razonable pensar que allí donde se alcanzan mayores temperaturas máximas también se alcanzarán las mínimas. Por el contrario la parte superior derecha del gráfico parece relativamente vacía y los puntos parecen agruparse más bien en torno a una recta decreciente. En cualquier caso la poca correlación que guardan los puntos de la figura 14 no permite extraer conclusiones sobre la relación entre temperaturas máximas y mínimas con un nivel de confianza alto.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="imagenes/humlluvias.jpeg" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Figura 15. Representación de las diferentes estaciones tomando la humedad media frente a la cantidad de días de lluvia.</figcaption>
+</figure>
+</div>
+<p>Al contrario que en el caso anterior, la figura 15 muestra una correlación que sí es esperable entre la humedad y las precipitaciones. Precisamente esta alta correlación permite diferenciar mucho más claramente los <em>clusters</em>, pero consecuentemente, aporta poca información.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="imagenes/clusterplot.jpeg" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Figura 16. Representación de los en dos dimensiones.</figcaption>
+</figure>
+</div>
+<p>Tomando ahora variables adecuadas, se obtiene una representación gráfica de los <em>clusters</em> donde se observan claramente sus divisiones y cómo dos de ellos se encuentran notablemente más próximos en el espacio de variables que los otros dos.</p>
+<p>Finalmente, cabe reseñar una última ventaja del <em>clustering</em> con respecto a la consideración de las zonas climáticas y es que pese a que dos estaciones pertenezcan al mismo clima y estén próximas algunas de ellas se encuentran en accidentes geográficos importantes como montañas. Esto implica que pese a su proximidad física y climática, las precipitaciones pueden ser mucho más abundantes en una de ellas. Esto no se puede tener en cuenta considerando únicamente el mapa de la figura 11.</p>
+<p>Los datos de latitud y longitud utilizados en esta sección han sido obtenidos a partir de la información puesta a disposición por el Gobierno de Australia en <em>Locations</em>. En la web citada se pueden buscar una a una las ubicaciones que aparecen en el conjunto de datos y tomar, en la mayoría de casos sin ambigüedad, las coordenadas de la estación próxima que tenga registros entre 2007 y 2017.</p>
+</section>
+<section id="primer-modelo" class="level2" data-number="10.2">
+<h2 data-number="10.2" class="anchored" data-anchor-id="primer-modelo"><span class="header-section-number">10.2</span> Primer modelo</h2>
+<p>El primer modelo es un Random Forest que hemos entrenado modificando y buscando los parámetros correctos. Hemos modificado en un principio la máxima profundidad, el máximo número de discretizadores de las variables continuas y el número de árboles del bosque. Comenzamos viendo que los mejores valores para estas características son <span class="math inline">\(numTrees=20\)</span>, <span class="math inline">\(maxDepth=15\)</span> y <span class="math inline">\(maxBins=50\)</span>. Posteriormente realizamos otro modelo viendo si se podía reducir el número de bins ahora que ya no teníamos las 49 estaciones tras haberlas sustituido por su cluster correspondiente.</p>
+<p>Por último probamos las demás características como el menor número de instancias por nodo, el umbral de información necesaria para realizar una división en un nodo, si se deben almacenar los identificadores en caché y el intervalo para almacenar checkpoints. Tras el crossvalidator obtenemos que los parámetros correctos son: número de árboles: 20, profundidad máxima: 15, número máximo de bins: 50, mínimo de instancias por nodo: 5, mínimo de ganancia de información: 0.0, caché de IDs de nodos: false e intervalo de checkpoint: 10.</p>
+<p>En el conjunto de entrenamiento nos da un AUC 0.8646.</p>
+<p>Con dichos parámetros y en el conjunto de prueba hemos obtenido las siguientes métricas.</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Métrica</th>
+<th>Valor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Error</td>
+<td>0.153</td>
+</tr>
+<tr class="even">
+<td>Acierto</td>
+<td>0.847</td>
+</tr>
+<tr class="odd">
+<td>Desviación Estándar</td>
+<td>0.00174</td>
+</tr>
+<tr class="even">
+<td>Intervalo de Confianza Inferior</td>
+<td>0.149</td>
+</tr>
+<tr class="odd">
+<td>Intervalo de Confianza Superior</td>
+<td>0.156</td>
+</tr>
+<tr class="even">
+<td>Área bajo la curva ROC</td>
+<td>0.717</td>
+</tr>
+<tr class="odd">
+<td>Área bajo la curva PR</td>
+<td>0.861</td>
+</tr>
+<tr class="even">
+<td>Tasa de ciertos positivos</td>
+<td>0.955</td>
+</tr>
+<tr class="odd">
+<td>Tasa de falsos positivos</td>
+<td>0.520</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Resultados métricas Random Forest</strong></p>
+<p><strong>Matriz de confusión del modelo 1</strong> <span class="math display">\[
+\begin{array}{c|cc}
+    &amp; \text{0.0} &amp; \text{1.0} \\
+\hline
+\text{0.0} &amp; 4632 &amp; 5027 \\
+\text{1.0} &amp; 1497 &amp; 31563 \\
+\end{array}
+\]</span></p>
+<p>La anterior matriz nos muestra como unos los días que llueve al día siguiente y como ceros los que no. Como vemos, nuestro modelo falla en la clase menos prioritaria. Pero acierta en la clase mayaritaria, si no sería un despropósito. A pesar de esto mejoramos el modelo trivial, aquel modelo que decía que nunca llovía.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="imagenes/CurvaRocRandomForest.jpg" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Figura 17. Curva Roc Random Forest</figcaption>
+</figure>
+</div>
+</section>
+<section id="segundo-modelo" class="level2" data-number="10.3">
+<h2 data-number="10.3" class="anchored" data-anchor-id="segundo-modelo"><span class="header-section-number">10.3</span> Segundo modelo</h2>
+<p>El segundo modelo es una regresión logística en la que modificamos los parámetros de iteraciones máximas, la mezcla entre L1 y L2, el threshold es el umbral y la fuerza de regularización. Tras usar validación cruzada los mejores parámetros son <span class="math inline">\(regParam= 0.01\)</span>, <span class="math inline">\(elasticNetParam= 0.5\)</span>, <span class="math inline">\(threshold=0.6\)</span> y <span class="math inline">\(maxIters=10\)</span> que nos dan un valor de AUC de 0.84798.</p>
+<p>A continuación veremos los valores de las métricas pedidas para la evaluación con el conjunto de prueba.</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Métrica</th>
+<th>Valor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Error</td>
+<td>0.163</td>
+</tr>
+<tr class="even">
+<td>Acierto</td>
+<td>0.837</td>
+</tr>
+<tr class="odd">
+<td>Desviación Estándar</td>
+<td>0.00179</td>
+</tr>
+<tr class="even">
+<td>Intervalo de Confianza Inferior</td>
+<td>0.159</td>
+</tr>
+<tr class="odd">
+<td>Intervalo de Confianza Superior</td>
+<td>0.166</td>
+</tr>
+<tr class="even">
+<td>Área bajo la curva ROC</td>
+<td>0.732</td>
+</tr>
+<tr class="odd">
+<td>Área bajo la curva PR</td>
+<td>0.869</td>
+</tr>
+<tr class="even">
+<td>Tasa de ciertos positivos</td>
+<td>0.924</td>
+</tr>
+<tr class="odd">
+<td>Tasa de falsos positivos</td>
+<td>0.459</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Resultados métricas Regresión Logística</strong></p>
+<p>Más adelante vamos a comparar estos dos resultados.</p>
+<p><strong>Matriz de confusión del modelo 2</strong> <span class="math display">\[
+\begin{array}{c|cc}
+    &amp; \text{0.0} &amp; \text{1.0} \\
+\hline
+\text{0.0} &amp; 5220 &amp; 4439 \\
+\text{1.0} &amp; 2513 &amp; 30547 \\
+\end{array}
+\]</span></p>
+<p>En esta tabla vemos como se clasifica mejor a los días que va a llover a cambio de perder algunas clasificaciones.</p>
+<p>A continuación vemos la curva ROC de la regresión logística:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="imagenes/CurvaRocRegresionLogistica.jpg" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Figura 18. Curva Roc Regresión Logística</figcaption>
+</figure>
+</div>
+</section>
+</section>
+<section id="conclusiones-engrega-3" class="level1" data-number="11">
+<h1 data-number="11"><span class="header-section-number">11</span> Conclusiones engrega 3</h1>
+<p>A la vista de los resultados y las métricas estudiadas en cada uno de los modelos el segundo modelo, correspondiente a la regresión logística, es el que mejores resultados reporta. Huelga añadir que la complejidad del modelo no se relaciona necesariamente con mejores resultados. De hecho, en este caso, pese a poder considerar el <em>random forest</em> como un modelo más avanzado, la regresión logística se comporta de manera más satisfactoria.</p>
+<p>La decisión de considerar el segundo modelo sobre el primero radica fundamentalmente en que es el que mejor clasifica a la clase <em>Yes</em>. En problemas similares al tratado en este proyecto, en los cuales las clases están extremandamente desbalanceadas, es capital que el modelo sea capaz de clasificar correctamente la clase con menor número de instancias. La complejidad del tratamiento de conjuntos de datos de este tipo no radica en conseguir una tasa de erro baja, pues un clasificador que devuelva la clase <em>No</em> de manera indiscriminada parecería ser idóneo. En cambio, nadad más lejos de la realidad, es necesario utilizar otras métricas que permitan determinar si realmete se está tratando de manera correcta la clase minoritaria.</p>
+<p>Además, el segundo modelo no solo clasifica mejor la clase <em>Yes</em>, sino que examinando las métricas una a una se observa que presenta un mayor AUC así como un mayor área bajo la curva PR. Estas consideraciones refuerzan la idea de tomar el modelo de regresión logística como modelo más adecuado en este proyecto.</p>
+<p>En cualquier caso, este modelo aún es muy mejorable y se puede adecuar en mayor medida al problema tratado. Ya comentamos en anteriores entregables que una de las variables más determinantes en la predicción meteorológica son las relativas a las nubes, tanto su forma como su color como su porcentaje de ocupación en el cielo. Por otro lado tampoco disponemos de datos acerca de variaciones de la presión que son bastante útiles en estos problemas meteorológicos. Dado que nuestro conjunto de datos no posee esta información no podemos tratar de conseguir milagros. Teniendo esto en cuenta, tal y como hemos ido indicando en las entregas previas, hemos valorado multiples soluciones posibles y mejoras del modelo subsanando deficiencias que se han reseñado cuando se han observado. Entre ellas se encuentra por ejemplo la separación del atributo de dirección del viento en seno y coseno, facilitando el tratamiento de estos datos de especial relevancia. Se han valorado también formas de introducir nuevas variables que den cuenta de la variabilidad de la presión o su tendencia a lo largo de los últimos días. Desgraciadamente el tiempo es finito y, pese a que nos habría encantado poder desarrollar con mayor profundidad este proyecto y llevar a cabo todas nuestras ideas en pos de perfeccionar el modelo todo lo posible, hemos tenido que conformarnos con unos resultados para nada desmerecedores pero que distan del tratamiento que habríamos querido dar al problema.</p>
+<p>Por último queremos remarcar la importancia del <em>clustering</em> realizado, que aporta una nueva variable completamente nueva y con una riqueza de información notable. De hecho, únicamente el hecho de haberla incluido ha permitido comparar parámetros que de otra forma habrían sido inalcanzables. Esto es notorio, por ejemplo, en el parámetro maxBins, que se exploró en el entregable individual y se veía acotado por el número de valores del atributo Locations. Reducir estos 49 valores a un total de 4 <em>clusters</em> conlleva una ampliación notable en el rango de valores que se pueden considerar del citado parámetro. Pero lo mejor del procedimiento aplicado es que además de reducir la dimensionalidad se ha añadido información en el proceso, pues los modelos que tienen en cuenta el <em>cluster</em> acceden a información sobre el clima de la estación, cosa que escapa a la capacidad de los modelos que sólo tienen en cuenta Location.</p>
+</section>
+<section id="referencias" class="level1" data-number="12">
+<h1 data-number="12"><span class="header-section-number">12</span> Referencias</h1>
+<ol type="1">
+<li><p>Hudson, D., Alves, O., Hendon, H. H., Lim, E.-P., Liu, G., Luo, J.-J., MacLachlan, C., Marshall, A. G., Shi, L., Wang, G., &amp; others. (2017). ACCESS-S1 The new Bureau of Meteorology multi-week to seasonal prediction system. <em>Journal of Southern Hemisphere Earth Systems Science, 67</em>(3), 132–159. <a href="https://doi.org/10.1071/SH18053">CSIRO Publishing</a></p></li>
+<li><p>Sarasa-Cabezuelo, A. (2022). Prediction of rainfall in Australia using machine learning. <em>Information, 13</em>(4), 163. <a href="https://doi.org/10.3390/info13040163">MDPI</a></p></li>
+<li><p>Young, J. (2020). Rain in Australia. Kaggle post. <a href="https://www.kaggle.com/datasets/jsphyg/weather-dataset-rattle-package/data">Dataset Link</a></p></li>
+<li><p>Kyner, T. J. (2021). Rain in Australia - Next-Day Prediction Model. GitHub repository. <a href="https://github.com/tjkyner/australian-rain-prediction">Repository Link</a></p></li>
+<li><p>Banerjee, P. (2019). Extensive Analysis - EDA + FE + Modelling. Kaggle post. <a href="https://www.kaggle.com/code/prashant111/extensive-analysis-eda-fe-modelling/notebook">Analysis Link</a></p></li>
+<li><p>Cullen, M. J. P. (1993). The unified forecast/climate model. <em>Meteorological Magazine, 122</em>(1449), 81–94. <a href="https://doi.org/10.1175/1520-0493(1990)118%3C1483:AMFCSW%3E2.0.CO;2">HMSO</a></p></li>
+<li><p>Gregory, D., &amp; Rowntree, P. R. (1990). A mass flux convection scheme with representation of cloud ensemble characteristics and stability-dependent closure. <em>Monthly Weather Review, 118</em>(7), 1483–1506. <a href="https://doi.org/10.1175/1520-0493(1990)118%3C1483:AMFCSW%3E2.0.CO;2">AMS</a></p></li>
+<li><p>Australian Government - Bureau of Meteorology. (n.d.). Climate classification maps. <a href="http://www.bom.gov.au/climate/maps/averages/climate-classification/?maptype=kpn">Bureau of Meteorology</a></p></li>
+<li><p>Australian Government - Bureau of Meteorology. (n.d.). Weather Station Directory. <a href="http://www.bom.gov.au/climate/data/stations/">Bureau of Meteorology</a></p></li>
+</ol>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./clusters.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Diversos tipos de clusterización</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./zumonaranjas.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Validación cruzada en diversos modelos</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>

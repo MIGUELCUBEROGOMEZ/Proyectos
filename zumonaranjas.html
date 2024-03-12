@@ -1,0 +1,1063 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Mis Proyectos - 5&nbsp; Validación cruzada en diversos modelos</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./TFG.html" rel="next">
+<link href="./Rainprediction.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./zumonaranjas.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Validación cruzada en diversos modelos</span></a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Mis Proyectos</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Prólogo</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Eda.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Análisis Exploratorio de Datos</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./clusters.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Diversos tipos de clusterización</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Rainprediction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Predicción de lluvia en Australia</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./zumonaranjas.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Validación cruzada en diversos modelos</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./TFG.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">TFG</span></span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#en-qué-tienda-se-compraron-los-zumos" id="toc-en-qué-tienda-se-compraron-los-zumos" class="nav-link active" data-scroll-target="#en-qué-tienda-se-compraron-los-zumos"><span class="header-section-number">6</span> ¿En qué tienda se compraron los zumos?</a>
+  <ul class="collapse">
+  <li><a href="#intoducción" id="toc-intoducción" class="nav-link" data-scroll-target="#intoducción"><span class="header-section-number">6.1</span> Intoducción</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Validación cruzada en diversos modelos</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="en-qué-tienda-se-compraron-los-zumos" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> ¿En qué tienda se compraron los zumos?</h1>
+<section id="intoducción" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="intoducción"><span class="header-section-number">6.1</span> Intoducción</h2>
+<p>Los datos contienen 1070 compras en las que el cliente compró Citrus Hill o Minute Maid Orange Juice. Se registran una serie de características del cliente y del producto. El objetivo del conjunto de datos es predecir qué zumo se compró.</p>
+<p>Tenemos 6 variables categóricas, una de ellas un factor las demás escritas como números discretos. Por otro lado tenemos 11 variables numéricas.</p>
+<p>Cargamos las librerías y vemos los datos, así como su resumen.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">suppressMessages</span>({</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">suppressWarnings</span>({</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ISLR2, <span class="at">quietly =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(corrplot, <span class="at">quietly =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2, <span class="at">quietly =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr, <span class="at">quietly =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(caTools, <span class="at">quietly =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(caret, <span class="at">quietly =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(class, <span class="at">quietly =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(randomForest, <span class="at">quietly =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(e1071, <span class="at">quietly =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(MASS, <span class="at">quietly =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rpart, <span class="at">quietly =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lattice, <span class="at">quietly =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(nnet, <span class="at">quietly =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mlbench, <span class="at">quietly =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(adabag, <span class="at">quietly =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    })})</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(OJ)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Purchase WeekofPurchase StoreID PriceCH PriceMM DiscCH DiscMM SpecialCH
+1       CH            237       1    1.75    1.99   0.00    0.0         0
+2       CH            239       1    1.75    1.99   0.00    0.3         0
+3       CH            245       1    1.86    2.09   0.17    0.0         0
+4       MM            227       1    1.69    1.69   0.00    0.0         0
+5       CH            228       7    1.69    1.69   0.00    0.0         0
+6       CH            230       7    1.69    1.99   0.00    0.0         0
+  SpecialMM  LoyalCH SalePriceMM SalePriceCH PriceDiff Store7 PctDiscMM
+1         0 0.500000        1.99        1.75      0.24     No  0.000000
+2         1 0.600000        1.69        1.75     -0.06     No  0.150754
+3         0 0.680000        2.09        1.69      0.40     No  0.000000
+4         0 0.400000        1.69        1.69      0.00     No  0.000000
+5         0 0.956535        1.69        1.69      0.00    Yes  0.000000
+6         1 0.965228        1.99        1.69      0.30    Yes  0.000000
+  PctDiscCH ListPriceDiff STORE
+1  0.000000          0.24     1
+2  0.000000          0.24     1
+3  0.091398          0.23     1
+4  0.000000          0.00     1
+5  0.000000          0.00     0
+6  0.000000          0.30     0</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(OJ)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> Purchase WeekofPurchase     StoreID        PriceCH         PriceMM     
+ CH:653   Min.   :227.0   Min.   :1.00   Min.   :1.690   Min.   :1.690  
+ MM:417   1st Qu.:240.0   1st Qu.:2.00   1st Qu.:1.790   1st Qu.:1.990  
+          Median :257.0   Median :3.00   Median :1.860   Median :2.090  
+          Mean   :254.4   Mean   :3.96   Mean   :1.867   Mean   :2.085  
+          3rd Qu.:268.0   3rd Qu.:7.00   3rd Qu.:1.990   3rd Qu.:2.180  
+          Max.   :278.0   Max.   :7.00   Max.   :2.090   Max.   :2.290  
+     DiscCH            DiscMM         SpecialCH        SpecialMM     
+ Min.   :0.00000   Min.   :0.0000   Min.   :0.0000   Min.   :0.0000  
+ 1st Qu.:0.00000   1st Qu.:0.0000   1st Qu.:0.0000   1st Qu.:0.0000  
+ Median :0.00000   Median :0.0000   Median :0.0000   Median :0.0000  
+ Mean   :0.05186   Mean   :0.1234   Mean   :0.1477   Mean   :0.1617  
+ 3rd Qu.:0.00000   3rd Qu.:0.2300   3rd Qu.:0.0000   3rd Qu.:0.0000  
+ Max.   :0.50000   Max.   :0.8000   Max.   :1.0000   Max.   :1.0000  
+    LoyalCH          SalePriceMM     SalePriceCH      PriceDiff       Store7   
+ Min.   :0.000011   Min.   :1.190   Min.   :1.390   Min.   :-0.6700   No :714  
+ 1st Qu.:0.325257   1st Qu.:1.690   1st Qu.:1.750   1st Qu.: 0.0000   Yes:356  
+ Median :0.600000   Median :2.090   Median :1.860   Median : 0.2300            
+ Mean   :0.565782   Mean   :1.962   Mean   :1.816   Mean   : 0.1465            
+ 3rd Qu.:0.850873   3rd Qu.:2.130   3rd Qu.:1.890   3rd Qu.: 0.3200            
+ Max.   :0.999947   Max.   :2.290   Max.   :2.090   Max.   : 0.6400            
+   PctDiscMM        PctDiscCH       ListPriceDiff       STORE      
+ Min.   :0.0000   Min.   :0.00000   Min.   :0.000   Min.   :0.000  
+ 1st Qu.:0.0000   1st Qu.:0.00000   1st Qu.:0.140   1st Qu.:0.000  
+ Median :0.0000   Median :0.00000   Median :0.240   Median :2.000  
+ Mean   :0.0593   Mean   :0.02731   Mean   :0.218   Mean   :1.631  
+ 3rd Qu.:0.1127   3rd Qu.:0.00000   3rd Qu.:0.300   3rd Qu.:3.000  
+ Max.   :0.4020   Max.   :0.25269   Max.   :0.440   Max.   :4.000  </code></pre>
+</div>
+</div>
+<p>Veamos si hay valores faltantes en los datos.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>valores_faltantes <span class="ot">&lt;-</span> <span class="fu">colSums</span>(<span class="fu">is.na</span>(OJ))</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(valores_faltantes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      Purchase WeekofPurchase        StoreID        PriceCH        PriceMM 
+             0              0              0              0              0 
+        DiscCH         DiscMM      SpecialCH      SpecialMM        LoyalCH 
+             0              0              0              0              0 
+   SalePriceMM    SalePriceCH      PriceDiff         Store7      PctDiscMM 
+             0              0              0              0              0 
+     PctDiscCH  ListPriceDiff          STORE 
+             0              0              0 </code></pre>
+</div>
+</div>
+<p>Estudiemos como es la variable storeID, hay 5 posibles tiendas.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(OJ<span class="sc">$</span>StoreID)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1 7 2 3 4</code></pre>
+</div>
+</div>
+<p>Esto nos dice que hay variables que contienen la misma información y tendremos que modificar los datos para mejorar su calidad. Ahora veremos como se distribuyen las variables.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">7</span>))</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(OJ<span class="sc">$</span>WeekofPurchase, <span class="at">main =</span> <span class="st">""</span>)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(OJ<span class="sc">$</span>StoreID, <span class="at">main =</span> <span class="st">""</span>)</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(OJ<span class="sc">$</span>PriceCH, <span class="at">main =</span> <span class="st">""</span>)</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(OJ<span class="sc">$</span>PriceMM, <span class="at">main =</span> <span class="st">""</span>)</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(OJ<span class="sc">$</span>DiscCH, <span class="at">main =</span> <span class="st">""</span>)</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(OJ<span class="sc">$</span>DiscMM, <span class="at">main =</span> <span class="st">""</span>)</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(OJ<span class="sc">$</span>LoyalCH, <span class="at">main =</span> <span class="st">""</span>)</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(OJ<span class="sc">$</span>SalePriceMM, <span class="at">main =</span> <span class="st">""</span>)</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(OJ<span class="sc">$</span>SalePriceCH, <span class="at">main =</span> <span class="st">""</span>)</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(OJ<span class="sc">$</span>PriceDiff, <span class="at">main =</span> <span class="st">""</span>)</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(OJ<span class="sc">$</span>PctDiscMM, <span class="at">main =</span> <span class="st">""</span>)</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(OJ<span class="sc">$</span>PctDiscCH, <span class="at">main =</span> <span class="st">""</span>)</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(OJ<span class="sc">$</span>ListPriceDiff, <span class="at">main =</span> <span class="st">""</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="zumonaranjas_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Fijandonos podemos observar caracteristicas de las variables Vemos como las distribuciones suelen estar concentradas en torno a un valor que destaca más que el resto.</p>
+<p>Eliminamos las varibales Store7 y STORE porque esta información ya está contenida en StoreID:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>OJ <span class="ot">&lt;-</span> OJ[, <span class="sc">!</span>(<span class="fu">names</span>(OJ) <span class="sc">%in%</span> <span class="st">"Store7"</span>)]</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>OJ <span class="ot">&lt;-</span> OJ[, <span class="sc">!</span>(<span class="fu">names</span>(OJ) <span class="sc">%in%</span> <span class="st">"STORE"</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Usamos one-hot para separar la variable StoreID y luego eliminamos esta variable por las nuevas creadas.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>one_hot_storeid <span class="ot">&lt;-</span> <span class="fu">model.matrix</span>(<span class="sc">~</span> <span class="fu">factor</span>(StoreID) <span class="sc">-</span> <span class="dv">1</span>, <span class="at">data =</span> OJ)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(one_hot_storeid) <span class="ot">&lt;-</span> <span class="fu">paste</span>(<span class="st">"StoreID"</span>, <span class="fu">levels</span>(<span class="fu">factor</span>(OJ<span class="sc">$</span>StoreID)), <span class="at">sep =</span> <span class="st">"_"</span>)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>OJ <span class="ot">&lt;-</span> <span class="fu">cbind</span>(OJ, one_hot_storeid)</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>OJ <span class="ot">&lt;-</span> OJ[, <span class="sc">!</span>(<span class="fu">names</span>(OJ) <span class="sc">%in%</span> <span class="st">"StoreID"</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Ahora convertimos la clase en numérica y calculamos el porcentaje de cada clase.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>OJ<span class="sc">$</span>Purchase <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(OJ<span class="sc">$</span>Purchase <span class="sc">==</span> <span class="st">"CH"</span>, <span class="dv">1</span>, <span class="dv">0</span>)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>porcentajeCH <span class="ot">&lt;-</span> <span class="fu">sum</span>(OJ<span class="sc">$</span>Purchase <span class="sc">==</span> <span class="dv">1</span>) <span class="sc">/</span> <span class="fu">nrow</span>(OJ)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>porcentajeMM <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">-</span> porcentajeCH</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Procentaje de compras en Citrus Hill:"</span>,porcentajeCH)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Procentaje de compras en Citrus Hill: 0.6102804</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Procentaje de compras en Minute Maid:"</span>,porcentajeMM)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Procentaje de compras en Minute Maid: 0.3897196</code></pre>
+</div>
+</div>
+<p>Estudiamos las correlaciones entre las variables finales.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>))</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>correlation_matrix <span class="ot">&lt;-</span> <span class="fu">cor</span>(OJ)</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="fu">corrplot</span>(correlation_matrix,<span class="at">method =</span> <span class="st">'square'</span>,<span class="at">type =</span> <span class="st">'upper'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="zumonaranjas_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Ahora separamos nuestro conjunto de datos en datos de entrenamiento y de prueba.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1234</span>)</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>split <span class="ot">&lt;-</span> <span class="fu">sample.split</span>(OJ<span class="sc">$</span>Purchase, <span class="at">SplitRatio =</span> <span class="fl">0.80</span>)</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>training_set <span class="ot">&lt;-</span> <span class="fu">subset</span>(OJ, split <span class="sc">==</span> <span class="cn">TRUE</span>)</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>test_set <span class="ot">&lt;-</span> <span class="fu">subset</span>(OJ, split <span class="sc">==</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Después vamos a crear los conjuntos en los que realizaremos la validación cruzada para mejorar el rendimiento del modelo.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>folds <span class="ot">&lt;-</span> <span class="fu">createFolds</span>(training_set<span class="sc">$</span>Purchase, <span class="at">k =</span> <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Entrenamos LDA y mostramos los resultados:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>listamodelos <span class="ot">&lt;-</span> <span class="fu">list</span>()</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>listaprecisiones <span class="ot">&lt;-</span> <span class="fu">list</span>()</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>) {</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>  training_fold <span class="ot">&lt;-</span> training_set[<span class="sc">-</span>folds[[i]], ]</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>  test_fold <span class="ot">&lt;-</span> training_set[folds[[i]], ]</span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>  clasificador <span class="ot">&lt;-</span> <span class="fu">lda</span>(Purchase <span class="sc">~</span> ., <span class="at">data =</span> training_fold)</span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>  y_pred <span class="ot">&lt;-</span> <span class="fu">predict</span>(clasificador, <span class="at">newdata =</span> test_fold)<span class="sc">$</span>class</span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>  mc <span class="ot">&lt;-</span> <span class="fu">table</span>(test_fold<span class="sc">$</span>Purchase, y_pred)</span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>  precision <span class="ot">&lt;-</span> (mc[<span class="dv">1</span>,<span class="dv">1</span>] <span class="sc">+</span> mc[<span class="dv">2</span>,<span class="dv">2</span>]) <span class="sc">/</span> (mc[<span class="dv">1</span>,<span class="dv">1</span>] <span class="sc">+</span> mc[<span class="dv">2</span>,<span class="dv">2</span>] <span class="sc">+</span> mc[<span class="dv">1</span>,<span class="dv">2</span>] <span class="sc">+</span> mc[<span class="dv">2</span>,<span class="dv">1</span>])</span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>  listamodelos[[i]] <span class="ot">&lt;-</span> clasificador</span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a>  listaprecisiones[[i]] <span class="ot">&lt;-</span> precision</span>
+<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in lda.default(x, grouping, ...): variables are collinear
+
+Warning in lda.default(x, grouping, ...): variables are collinear
+
+Warning in lda.default(x, grouping, ...): variables are collinear
+
+Warning in lda.default(x, grouping, ...): variables are collinear
+
+Warning in lda.default(x, grouping, ...): variables are collinear</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>precisionLDA <span class="ot">&lt;-</span> <span class="fu">mean</span>(<span class="fu">as.numeric</span>(listaprecisiones))</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">Precision media validacion cruzada LDA:"</span>,precisionLDA)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Precision media validacion cruzada LDA: 0.8224194</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">Error medio validacion cruzada LDA:"</span>,<span class="dv">1</span><span class="sc">-</span>precisionLDA)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Error medio validacion cruzada LDA: 0.1775806</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>indice<span class="ot">&lt;-</span> <span class="fu">which.max</span>(listaprecisiones)</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>mejormodelo <span class="ot">&lt;-</span> listamodelos[[indice]]</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>predicciones <span class="ot">&lt;-</span> <span class="fu">predict</span>(mejormodelo, <span class="at">newdata =</span> test_set)<span class="sc">$</span>class</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>mc <span class="ot">&lt;-</span> <span class="fu">table</span>(test_set<span class="sc">$</span>Purchase, predicciones)</span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>precision <span class="ot">&lt;-</span>(mc[<span class="dv">1</span>,<span class="dv">1</span>] <span class="sc">+</span> mc[<span class="dv">2</span>,<span class="dv">2</span>]) <span class="sc">/</span> (mc[<span class="dv">1</span>,<span class="dv">1</span>] <span class="sc">+</span> mc[<span class="dv">2</span>,<span class="dv">2</span>] <span class="sc">+</span>mc[<span class="dv">1</span>,<span class="dv">2</span>] <span class="sc">+</span> mc[<span class="dv">2</span>,<span class="dv">1</span>])</span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">Precision LDA:"</span>,precision)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Precision LDA: 0.8411215</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">Error LDA:"</span>,<span class="dv">1</span><span class="sc">-</span>precision)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Error LDA: 0.1588785</code></pre>
+</div>
+</div>
+<p>En el caso del discriminante cuadrático (QDA) necesitamos que las variables no estén correlacionadas. Para ello tenemos que eliminar gran parte de ellas. Además mostramos un gráfico de las correlaciones restantes.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>training_setQDA <span class="ot">&lt;-</span>training_set[,<span class="sc">-</span><span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">7</span>,<span class="dv">9</span>,<span class="dv">10</span>,<span class="dv">11</span>,<span class="dv">12</span>,<span class="dv">13</span>,<span class="dv">14</span>,<span class="dv">15</span>,<span class="dv">20</span>)]</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>test_setQDA <span class="ot">&lt;-</span> test_set[,<span class="sc">-</span><span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">7</span>,<span class="dv">9</span>,<span class="dv">10</span>,<span class="dv">11</span>,<span class="dv">12</span>,<span class="dv">13</span>,<span class="dv">14</span>,<span class="dv">15</span>,<span class="dv">20</span>)]</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>correlation_matrix <span class="ot">&lt;-</span> <span class="fu">cor</span>(training_setQDA)</span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a><span class="fu">corrplot</span>(correlation_matrix,<span class="at">method =</span> <span class="st">'square'</span>,<span class="at">type =</span> <span class="st">'upper'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="zumonaranjas_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>listamodelos <span class="ot">&lt;-</span> <span class="fu">list</span>()</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>listaprecisiones <span class="ot">&lt;-</span> <span class="fu">list</span>()</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>) {</span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>  training_fold <span class="ot">&lt;-</span> training_setQDA[<span class="sc">-</span>folds[[i]],]</span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>  test_fold <span class="ot">&lt;-</span> training_setQDA[folds[[i]],]</span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>  clasificador <span class="ot">&lt;-</span> <span class="fu">qda</span>(Purchase <span class="sc">~</span> ., <span class="at">data =</span> training_fold)</span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a>  y_pred <span class="ot">&lt;-</span> <span class="fu">predict</span>(clasificador, <span class="at">newdata =</span> test_fold)<span class="sc">$</span>class</span>
+<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a>  mc <span class="ot">&lt;-</span> <span class="fu">table</span>(test_fold<span class="sc">$</span>Purchase, y_pred)</span>
+<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a>  precision <span class="ot">&lt;-</span> (mc[<span class="dv">1</span>,<span class="dv">1</span>] <span class="sc">+</span> mc[<span class="dv">2</span>,<span class="dv">2</span>]) <span class="sc">/</span> (mc[<span class="dv">1</span>,<span class="dv">1</span>] <span class="sc">+</span> mc[<span class="dv">2</span>,<span class="dv">2</span>] <span class="sc">+</span>mc[<span class="dv">1</span>,<span class="dv">2</span>] <span class="sc">+</span> mc[<span class="dv">2</span>,<span class="dv">1</span>])</span>
+<span id="cb30-11"><a href="#cb30-11" aria-hidden="true" tabindex="-1"></a>  listamodelos[[i]] <span class="ot">&lt;-</span> clasificador</span>
+<span id="cb30-12"><a href="#cb30-12" aria-hidden="true" tabindex="-1"></a>  listaprecisiones[[i]] <span class="ot">&lt;-</span> precision</span>
+<span id="cb30-13"><a href="#cb30-13" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb30-14"><a href="#cb30-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-15"><a href="#cb30-15" aria-hidden="true" tabindex="-1"></a>precisionQDA <span class="ot">&lt;-</span> <span class="fu">mean</span>(<span class="fu">as.numeric</span>(listaprecisiones))</span>
+<span id="cb30-16"><a href="#cb30-16" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">Precision media QDA:"</span>,precisionQDA)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Precision media QDA: 0.6845505</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">Error medio QDA:"</span>,<span class="dv">1</span><span class="sc">-</span>precisionQDA)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Error medio QDA: 0.3154495</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>indice<span class="ot">&lt;-</span> <span class="fu">which.max</span>(listaprecisiones)</span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>mejormodelo <span class="ot">&lt;-</span> listamodelos[[indice]]</span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>predicciones <span class="ot">&lt;-</span> <span class="fu">predict</span>(mejormodelo, <span class="at">newdata =</span> test_set)<span class="sc">$</span>class</span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>mc <span class="ot">&lt;-</span> <span class="fu">table</span>(test_set<span class="sc">$</span>Purchase, predicciones)</span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>precision <span class="ot">&lt;-</span>(mc[<span class="dv">1</span>,<span class="dv">1</span>] <span class="sc">+</span> mc[<span class="dv">2</span>,<span class="dv">2</span>]) <span class="sc">/</span> (mc[<span class="dv">1</span>,<span class="dv">1</span>] <span class="sc">+</span> mc[<span class="dv">2</span>,<span class="dv">2</span>] <span class="sc">+</span>mc[<span class="dv">1</span>,<span class="dv">2</span>] <span class="sc">+</span> mc[<span class="dv">2</span>,<span class="dv">1</span>])</span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">Precision LDA:"</span>,precision)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Precision LDA: 0.7009346</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">Error aLDA:"</span>,<span class="dv">1</span><span class="sc">-</span>precision)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Error aLDA: 0.2990654</code></pre>
+</div>
+</div>
+<p>En el caso de k-vecinos más próximos primer calculamos el k-indicado con la validación cruzada y posteriormente lo probamos con el conjunto de prueba con el k que mejor resultado nos aporta.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>){</span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>cvkNN <span class="ot">&lt;-</span> <span class="fu">lapply</span>(folds, <span class="cf">function</span>(x){</span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>  training_fold <span class="ot">&lt;-</span> training_set[<span class="sc">-</span>x, ]</span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>  test_fold <span class="ot">&lt;-</span> training_set[x, ]</span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>  y_pred <span class="ot">&lt;-</span> <span class="fu">knn</span>(training_fold[, <span class="sc">-</span><span class="dv">1</span>], </span>
+<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a>                test_fold[, <span class="sc">-</span><span class="dv">1</span>], </span>
+<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a>                <span class="at">cl =</span> training_fold[, <span class="dv">1</span>], </span>
+<span id="cb38-8"><a href="#cb38-8" aria-hidden="true" tabindex="-1"></a>                <span class="at">k =</span> i)</span>
+<span id="cb38-9"><a href="#cb38-9" aria-hidden="true" tabindex="-1"></a>  mc <span class="ot">&lt;-</span> <span class="fu">table</span>(test_fold<span class="sc">$</span>Purchase, y_pred)</span>
+<span id="cb38-10"><a href="#cb38-10" aria-hidden="true" tabindex="-1"></a>  precision <span class="ot">&lt;-</span> (mc[<span class="dv">1</span>,<span class="dv">1</span>] <span class="sc">+</span> mc[<span class="dv">2</span>,<span class="dv">2</span>]) <span class="sc">/</span> (mc[<span class="dv">1</span>,<span class="dv">1</span>] <span class="sc">+</span> mc[<span class="dv">2</span>,<span class="dv">2</span>] <span class="sc">+</span>mc[<span class="dv">1</span>,<span class="dv">2</span>] <span class="sc">+</span> mc[<span class="dv">2</span>,<span class="dv">1</span>])</span>
+<span id="cb38-11"><a href="#cb38-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(precision)</span>
+<span id="cb38-12"><a href="#cb38-12" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb38-13"><a href="#cb38-13" aria-hidden="true" tabindex="-1"></a>precisionkNN <span class="ot">&lt;-</span> <span class="fu">mean</span>(<span class="fu">as.numeric</span>(cvkNN))</span>
+<span id="cb38-14"><a href="#cb38-14" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">Precision knn con k="</span>,i,<span class="st">":"</span>,precisionkNN)</span>
+<span id="cb38-15"><a href="#cb38-15" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">Error knn con k="</span>,i,<span class="st">":"</span>,<span class="dv">1</span><span class="sc">-</span>precisionkNN)</span>
+<span id="cb38-16"><a href="#cb38-16" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Precision knn con k= 1 : 0.705576
+Error knn con k= 1 : 0.294424
+Precision knn con k= 2 : 0.6868829
+Error knn con k= 2 : 0.3131171
+Precision knn con k= 3 : 0.7312933
+Error knn con k= 3 : 0.2687067
+Precision knn con k= 4 : 0.7090915
+Error knn con k= 4 : 0.2909085
+Precision knn con k= 5 : 0.7382905
+Error knn con k= 5 : 0.2617095
+Precision knn con k= 6 : 0.7347953
+Error knn con k= 6 : 0.2652047
+Precision knn con k= 7 : 0.7242214
+Error knn con k= 7 : 0.2757786
+Precision knn con k= 8 : 0.719543
+Error knn con k= 8 : 0.280457
+Precision knn con k= 9 : 0.7359241
+Error knn con k= 9 : 0.2640759
+Precision knn con k= 10 : 0.7195566
+Error knn con k= 10 : 0.2804434</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>knn_model <span class="ot">&lt;-</span> <span class="fu">knn</span>(training_set[, <span class="sc">-</span><span class="dv">1</span>], test_set[, <span class="sc">-</span><span class="dv">1</span>], <span class="at">cl =</span> training_set[, <span class="dv">1</span>], <span class="at">k =</span> <span class="dv">5</span>)</span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>mc_test <span class="ot">&lt;-</span> <span class="fu">table</span>(test_set<span class="sc">$</span>Purchase, knn_model)</span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>precision_test <span class="ot">&lt;-</span> (mc_test[<span class="dv">1</span>, <span class="dv">1</span>] <span class="sc">+</span> mc_test[<span class="dv">2</span>, <span class="dv">2</span>]) <span class="sc">/</span> (mc_test[<span class="dv">1</span>, <span class="dv">1</span>] <span class="sc">+</span> mc_test[<span class="dv">2</span>, <span class="dv">2</span>] <span class="sc">+</span> mc_test[<span class="dv">1</span>, <span class="dv">2</span>] <span class="sc">+</span> mc_test[<span class="dv">2</span>, <span class="dv">1</span>])</span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">Precision k-NN en el conjunto de prueba con k ="</span>, <span class="dv">5</span>, <span class="st">":"</span>, precision_test)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Precision k-NN en el conjunto de prueba con k = 5 : 0.7242991</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">Error k-NN en el conjunto de prueba con k ="</span>, <span class="dv">5</span>, <span class="st">":"</span>, <span class="dv">1</span> <span class="sc">-</span> precision_test)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Error k-NN en el conjunto de prueba con k = 5 : 0.2757009</code></pre>
+</div>
+</div>
+<p>En este modelo, la regresión logística tiene como salida las probabilidades por lo que tenemos que convertirlas en las clases numericas que queremos.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>listamodelos <span class="ot">&lt;-</span> <span class="fu">list</span>()</span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>listaprecisiones <span class="ot">&lt;-</span> <span class="fu">list</span>()</span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>) {</span>
+<span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a>  training_fold <span class="ot">&lt;-</span> training_set[<span class="sc">-</span>folds[[i]],]</span>
+<span id="cb44-6"><a href="#cb44-6" aria-hidden="true" tabindex="-1"></a>  test_fold <span class="ot">&lt;-</span> training_set[folds[[i]],]</span>
+<span id="cb44-7"><a href="#cb44-7" aria-hidden="true" tabindex="-1"></a>  clasificador <span class="ot">&lt;-</span> <span class="fu">glm</span>(Purchase <span class="sc">~</span> ., <span class="at">family =</span> binomial, <span class="at">data =</span> training_fold)</span>
+<span id="cb44-8"><a href="#cb44-8" aria-hidden="true" tabindex="-1"></a>  y_pred <span class="ot">&lt;-</span> <span class="fu">predict</span>(clasificador, <span class="at">type =</span> <span class="st">'response'</span>, <span class="at">newdata =</span> test_fold)</span>
+<span id="cb44-9"><a href="#cb44-9" aria-hidden="true" tabindex="-1"></a>  y_pred <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(y_pred <span class="sc">&gt;</span> <span class="fl">0.5</span>, <span class="dv">1</span>, <span class="dv">0</span>)</span>
+<span id="cb44-10"><a href="#cb44-10" aria-hidden="true" tabindex="-1"></a>  y_pred <span class="ot">&lt;-</span> <span class="fu">factor</span>(y_pred, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"0"</span>, <span class="st">"1"</span>), <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"MM"</span>, <span class="st">"CH"</span>))</span>
+<span id="cb44-11"><a href="#cb44-11" aria-hidden="true" tabindex="-1"></a>  mc <span class="ot">&lt;-</span> <span class="fu">table</span>(test_fold<span class="sc">$</span>Purchase, y_pred)</span>
+<span id="cb44-12"><a href="#cb44-12" aria-hidden="true" tabindex="-1"></a>  precision <span class="ot">&lt;-</span> (mc[<span class="dv">1</span>,<span class="dv">1</span>] <span class="sc">+</span> mc[<span class="dv">2</span>,<span class="dv">2</span>]) <span class="sc">/</span> (mc[<span class="dv">1</span>,<span class="dv">1</span>] <span class="sc">+</span> mc[<span class="dv">2</span>,<span class="dv">2</span>] <span class="sc">+</span>mc[<span class="dv">1</span>,<span class="dv">2</span>] <span class="sc">+</span> mc[<span class="dv">2</span>,<span class="dv">1</span>])</span>
+<span id="cb44-13"><a href="#cb44-13" aria-hidden="true" tabindex="-1"></a>  listamodelos[[i]] <span class="ot">&lt;-</span> clasificador</span>
+<span id="cb44-14"><a href="#cb44-14" aria-hidden="true" tabindex="-1"></a>  listaprecisiones[[i]] <span class="ot">&lt;-</span> precision</span>
+<span id="cb44-15"><a href="#cb44-15" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in predict.lm(object, newdata, se.fit, scale = 1, type = if (type == :
+prediction from rank-deficient fit; attr(*, "non-estim") has doubtful cases
+
+Warning in predict.lm(object, newdata, se.fit, scale = 1, type = if (type == :
+prediction from rank-deficient fit; attr(*, "non-estim") has doubtful cases
+
+Warning in predict.lm(object, newdata, se.fit, scale = 1, type = if (type == :
+prediction from rank-deficient fit; attr(*, "non-estim") has doubtful cases
+
+Warning in predict.lm(object, newdata, se.fit, scale = 1, type = if (type == :
+prediction from rank-deficient fit; attr(*, "non-estim") has doubtful cases
+
+Warning in predict.lm(object, newdata, se.fit, scale = 1, type = if (type == :
+prediction from rank-deficient fit; attr(*, "non-estim") has doubtful cases</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>precisionRegresionLogistica <span class="ot">&lt;-</span> <span class="fu">mean</span>(<span class="fu">as.numeric</span>(listaprecisiones))</span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">Precision Regresion Logistica:"</span>,precisionRegresionLogistica)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Precision Regresion Logistica: 0.823589</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">Error Regresion Logistica:"</span>,<span class="dv">1</span><span class="sc">-</span>precisionRegresionLogistica)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Error Regresion Logistica: 0.176411</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>indice<span class="ot">&lt;-</span> <span class="fu">which.max</span>(listaprecisiones)</span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>mejormodelo <span class="ot">&lt;-</span> listamodelos[[indice]]</span>
+<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a>predicciones <span class="ot">&lt;-</span> <span class="fu">predict</span>(mejormodelo, <span class="at">type =</span> <span class="st">'response'</span>, <span class="at">newdata =</span> test_set)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in predict.lm(object, newdata, se.fit, scale = 1, type = if (type == :
+prediction from rank-deficient fit; attr(*, "non-estim") has doubtful cases</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>predicciones <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(predicciones <span class="sc">&gt;</span> <span class="fl">0.5</span>, <span class="dv">1</span>, <span class="dv">0</span>)</span>
+<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a>predicciones <span class="ot">&lt;-</span> <span class="fu">factor</span>(predicciones, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"0"</span>, <span class="st">"1"</span>), <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"MM"</span>, <span class="st">"CH"</span>))</span>
+<span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a>mc <span class="ot">&lt;-</span> <span class="fu">table</span>(test_set<span class="sc">$</span>Purchase, predicciones)</span>
+<span id="cb52-4"><a href="#cb52-4" aria-hidden="true" tabindex="-1"></a>precision <span class="ot">&lt;-</span>(mc[<span class="dv">1</span>,<span class="dv">1</span>] <span class="sc">+</span> mc[<span class="dv">2</span>,<span class="dv">2</span>]) <span class="sc">/</span> (mc[<span class="dv">1</span>,<span class="dv">1</span>] <span class="sc">+</span> mc[<span class="dv">2</span>,<span class="dv">2</span>] <span class="sc">+</span>mc[<span class="dv">1</span>,<span class="dv">2</span>] <span class="sc">+</span> mc[<span class="dv">2</span>,<span class="dv">1</span>])</span>
+<span id="cb52-5"><a href="#cb52-5" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">Precision Regresion Logistica:"</span>,precision)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Precision Regresion Logistica: 0.8457944</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">Error Regresion Logistica:"</span>,<span class="dv">1</span><span class="sc">-</span>precision)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Error Regresion Logistica: 0.1542056</code></pre>
+</div>
+</div>
+<p>A continuación para support vector machines, probamos con distintos núcleos y usamos cross=5 para realizar la validación cruzada. El hecho de calcular los valores apropiados para cada núcleo aumenta mucho el tiempo de computación.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a>kernels <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"linear"</span>, <span class="st">"radial"</span>, <span class="st">"polynomial"</span>, <span class="st">"sigmoid"</span>)</span>
+<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-3"><a href="#cb56-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (kernel <span class="cf">in</span> kernels) {</span>
+<span id="cb56-4"><a href="#cb56-4" aria-hidden="true" tabindex="-1"></a>  tobj <span class="ot">&lt;-</span> <span class="fu">tune.svm</span>(Purchase <span class="sc">~</span> ., <span class="at">data =</span> training_set, <span class="at">gamma =</span> <span class="dv">10</span><span class="sc">^</span>(<span class="sc">-</span><span class="dv">3</span><span class="sc">:</span><span class="dv">0</span>), <span class="at">cost =</span> <span class="dv">10</span><span class="sc">^</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">2</span>), <span class="at">kernel =</span> kernel)</span>
+<span id="cb56-5"><a href="#cb56-5" aria-hidden="true" tabindex="-1"></a>  clasificador <span class="ot">&lt;-</span> <span class="fu">svm</span>(Purchase <span class="sc">~</span> ., <span class="at">data =</span> training_set, <span class="at">gamma =</span> tobj<span class="sc">$</span>best.parameters[[<span class="dv">1</span>]], <span class="at">cost =</span> tobj<span class="sc">$</span>best.parameters[[<span class="dv">2</span>]],<span class="at">kernel =</span> kernel, <span class="at">cross =</span> <span class="dv">3</span>, <span class="at">max_iter =</span> <span class="dv">5</span>)</span>
+<span id="cb56-6"><a href="#cb56-6" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb56-7"><a href="#cb56-7" aria-hidden="true" tabindex="-1"></a>  y_pred <span class="ot">&lt;-</span> <span class="fu">predict</span>(clasificador, test_set[, <span class="sc">-</span><span class="dv">1</span>])</span>
+<span id="cb56-8"><a href="#cb56-8" aria-hidden="true" tabindex="-1"></a>  y_pred <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(y_pred <span class="sc">&gt;</span> <span class="fl">0.5</span>, <span class="dv">1</span>, <span class="dv">0</span>)</span>
+<span id="cb56-9"><a href="#cb56-9" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb56-10"><a href="#cb56-10" aria-hidden="true" tabindex="-1"></a>  true <span class="ot">&lt;-</span> test_set<span class="sc">$</span>Purchase</span>
+<span id="cb56-11"><a href="#cb56-11" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb56-12"><a href="#cb56-12" aria-hidden="true" tabindex="-1"></a>  mc <span class="ot">&lt;-</span> <span class="fu">table</span>(y_pred, true)</span>
+<span id="cb56-13"><a href="#cb56-13" aria-hidden="true" tabindex="-1"></a>  precisionSVM <span class="ot">&lt;-</span> (mc[<span class="dv">1</span>, <span class="dv">1</span>] <span class="sc">+</span> mc[<span class="dv">2</span>, <span class="dv">2</span>]) <span class="sc">/</span> (mc[<span class="dv">1</span>, <span class="dv">1</span>] <span class="sc">+</span> mc[<span class="dv">2</span>, <span class="dv">2</span>] <span class="sc">+</span> mc[<span class="dv">1</span>, <span class="dv">2</span>] <span class="sc">+</span> mc[<span class="dv">2</span>, <span class="dv">1</span>])</span>
+<span id="cb56-14"><a href="#cb56-14" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb56-15"><a href="#cb56-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">Kernel:"</span>, kernel)</span>
+<span id="cb56-16"><a href="#cb56-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">Precision SVM:"</span>, precisionSVM)</span>
+<span id="cb56-17"><a href="#cb56-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">Error SVM:"</span>, <span class="dv">1</span> <span class="sc">-</span> precisionSVM)</span>
+<span id="cb56-18"><a href="#cb56-18" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in cret$cresults * scale.factor: Recycling array of length 1 in vector-array arithmetic is deprecated.
+  Use c() or as.vector() instead.</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Kernel: linear
+Precision SVM: 0.8271028
+Error SVM: 0.1728972</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in cret$cresults * scale.factor: Recycling array of length 1 in vector-array arithmetic is deprecated.
+  Use c() or as.vector() instead.</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Kernel: radial
+Precision SVM: 0.8130841
+Error SVM: 0.1869159</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in cret$cresults * scale.factor: Recycling array of length 1 in vector-array arithmetic is deprecated.
+  Use c() or as.vector() instead.</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Kernel: polynomial
+Precision SVM: 0.7803738
+Error SVM: 0.2196262</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in cret$cresults * scale.factor: Recycling array of length 1 in vector-array arithmetic is deprecated.
+  Use c() or as.vector() instead.</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Kernel: sigmoid
+Precision SVM: 0.8224299
+Error SVM: 0.1775701</code></pre>
+</div>
+</div>
+<p>El siguiente código entrena prueba los árboles de decisión.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a>listamodelos <span class="ot">&lt;-</span> <span class="fu">list</span>()</span>
+<span id="cb65-2"><a href="#cb65-2" aria-hidden="true" tabindex="-1"></a>listaprecisiones <span class="ot">&lt;-</span> <span class="fu">list</span>()</span>
+<span id="cb65-3"><a href="#cb65-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-4"><a href="#cb65-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>) {</span>
+<span id="cb65-5"><a href="#cb65-5" aria-hidden="true" tabindex="-1"></a>  training_fold <span class="ot">&lt;-</span> training_set[<span class="sc">-</span>folds[[i]], ]</span>
+<span id="cb65-6"><a href="#cb65-6" aria-hidden="true" tabindex="-1"></a>  test_fold <span class="ot">&lt;-</span> training_set[folds[[i]], ]</span>
+<span id="cb65-7"><a href="#cb65-7" aria-hidden="true" tabindex="-1"></a>  training_fold<span class="sc">$</span>Purchase <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(training_fold<span class="sc">$</span>Purchase)</span>
+<span id="cb65-8"><a href="#cb65-8" aria-hidden="true" tabindex="-1"></a>  test_fold<span class="sc">$</span>Purchase <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(test_fold<span class="sc">$</span>Purchase)</span>
+<span id="cb65-9"><a href="#cb65-9" aria-hidden="true" tabindex="-1"></a>  clasificador <span class="ot">&lt;-</span> <span class="fu">rpart</span>(Purchase <span class="sc">~</span> ., <span class="at">data =</span> training_fold)</span>
+<span id="cb65-10"><a href="#cb65-10" aria-hidden="true" tabindex="-1"></a>  y_pred <span class="ot">&lt;-</span> <span class="fu">predict</span>(clasificador, <span class="at">newdata =</span> test_fold, <span class="at">type =</span> <span class="st">'class'</span>)</span>
+<span id="cb65-11"><a href="#cb65-11" aria-hidden="true" tabindex="-1"></a>  mc <span class="ot">&lt;-</span> <span class="fu">table</span>(test_fold<span class="sc">$</span>Purchase, y_pred)</span>
+<span id="cb65-12"><a href="#cb65-12" aria-hidden="true" tabindex="-1"></a>  precision <span class="ot">&lt;-</span> (mc[<span class="dv">1</span>,<span class="dv">1</span>] <span class="sc">+</span> mc[<span class="dv">2</span>,<span class="dv">2</span>]) <span class="sc">/</span> (mc[<span class="dv">1</span>,<span class="dv">1</span>] <span class="sc">+</span> mc[<span class="dv">2</span>,<span class="dv">2</span>] <span class="sc">+</span>mc[<span class="dv">1</span>,<span class="dv">2</span>] <span class="sc">+</span> mc[<span class="dv">2</span>,<span class="dv">1</span>])</span>
+<span id="cb65-13"><a href="#cb65-13" aria-hidden="true" tabindex="-1"></a>  listamodelos[[i]] <span class="ot">&lt;-</span> clasificador</span>
+<span id="cb65-14"><a href="#cb65-14" aria-hidden="true" tabindex="-1"></a>  listaprecisiones[[i]] <span class="ot">&lt;-</span> precision</span>
+<span id="cb65-15"><a href="#cb65-15" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb65-16"><a href="#cb65-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-17"><a href="#cb65-17" aria-hidden="true" tabindex="-1"></a>indice<span class="ot">&lt;-</span> <span class="fu">which.max</span>(listaprecisiones)</span>
+<span id="cb65-18"><a href="#cb65-18" aria-hidden="true" tabindex="-1"></a>mejormodelo <span class="ot">&lt;-</span> listamodelos[[indice]]</span>
+<span id="cb65-19"><a href="#cb65-19" aria-hidden="true" tabindex="-1"></a>precisionDecisionTree <span class="ot">&lt;-</span> <span class="fu">mean</span>(<span class="fu">as.numeric</span>(listaprecisiones))</span>
+<span id="cb65-20"><a href="#cb65-20" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">Precision media DecisionTree:"</span>,precisionDecisionTree)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Precision media DecisionTree: 0.821243</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">Error medio DecisionTree:"</span>,<span class="dv">1</span><span class="sc">-</span>precisionDecisionTree)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Error medio DecisionTree: 0.178757</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a>mejormodelo <span class="ot">&lt;-</span> listamodelos[[indice]]</span>
+<span id="cb69-2"><a href="#cb69-2" aria-hidden="true" tabindex="-1"></a>test_set<span class="sc">$</span>Purchase <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(test_set<span class="sc">$</span>Purchase)</span>
+<span id="cb69-3"><a href="#cb69-3" aria-hidden="true" tabindex="-1"></a>predicciones <span class="ot">&lt;-</span> <span class="fu">predict</span>(mejormodelo, <span class="at">newdata =</span> test_set, <span class="at">type =</span> <span class="st">'class'</span>)</span>
+<span id="cb69-4"><a href="#cb69-4" aria-hidden="true" tabindex="-1"></a>mc <span class="ot">&lt;-</span> <span class="fu">table</span>(test_set<span class="sc">$</span>Purchase, predicciones)</span>
+<span id="cb69-5"><a href="#cb69-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-6"><a href="#cb69-6" aria-hidden="true" tabindex="-1"></a>precision <span class="ot">&lt;-</span>(mc[<span class="dv">1</span>,<span class="dv">1</span>] <span class="sc">+</span> mc[<span class="dv">2</span>,<span class="dv">2</span>]) <span class="sc">/</span> (mc[<span class="dv">1</span>,<span class="dv">1</span>] <span class="sc">+</span> mc[<span class="dv">2</span>,<span class="dv">2</span>] <span class="sc">+</span>mc[<span class="dv">1</span>,<span class="dv">2</span>] <span class="sc">+</span> mc[<span class="dv">2</span>,<span class="dv">1</span>])</span>
+<span id="cb69-7"><a href="#cb69-7" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">Precision DecisionTree:"</span>,precision)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Precision DecisionTree: 0.817757</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">Error DecisionTree:"</span>,<span class="dv">1</span><span class="sc">-</span>precision)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Error DecisionTree: 0.182243</code></pre>
+</div>
+</div>
+<p>Como modelo avanzado, primero veremos los random forest.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb73"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a>listamodelos <span class="ot">&lt;-</span> <span class="fu">list</span>()</span>
+<span id="cb73-2"><a href="#cb73-2" aria-hidden="true" tabindex="-1"></a>listaprecisiones <span class="ot">&lt;-</span> <span class="fu">list</span>()</span>
+<span id="cb73-3"><a href="#cb73-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-4"><a href="#cb73-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>) {</span>
+<span id="cb73-5"><a href="#cb73-5" aria-hidden="true" tabindex="-1"></a>  training_fold <span class="ot">&lt;-</span> training_set[<span class="sc">-</span>folds[[i]], ]</span>
+<span id="cb73-6"><a href="#cb73-6" aria-hidden="true" tabindex="-1"></a>  test_fold <span class="ot">&lt;-</span> training_set[folds[[i]], ]</span>
+<span id="cb73-7"><a href="#cb73-7" aria-hidden="true" tabindex="-1"></a>  training_fold<span class="sc">$</span>Purchase <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(training_fold<span class="sc">$</span>Purchase)</span>
+<span id="cb73-8"><a href="#cb73-8" aria-hidden="true" tabindex="-1"></a>  test_fold<span class="sc">$</span>Purchase <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(test_fold<span class="sc">$</span>Purchase)</span>
+<span id="cb73-9"><a href="#cb73-9" aria-hidden="true" tabindex="-1"></a>  clasificador <span class="ot">&lt;-</span> <span class="fu">randomForest</span>(Purchase <span class="sc">~</span> ., <span class="at">data =</span> training_fold, <span class="at">ntree =</span> <span class="dv">1000</span>)</span>
+<span id="cb73-10"><a href="#cb73-10" aria-hidden="true" tabindex="-1"></a>  y_pred <span class="ot">&lt;-</span> <span class="fu">predict</span>(clasificador, <span class="at">newdata =</span> test_fold)</span>
+<span id="cb73-11"><a href="#cb73-11" aria-hidden="true" tabindex="-1"></a>  mc <span class="ot">&lt;-</span> <span class="fu">table</span>(test_fold<span class="sc">$</span>Purchase, y_pred)</span>
+<span id="cb73-12"><a href="#cb73-12" aria-hidden="true" tabindex="-1"></a>  precision <span class="ot">&lt;-</span> (mc[<span class="dv">1</span>,<span class="dv">1</span>] <span class="sc">+</span> mc[<span class="dv">2</span>,<span class="dv">2</span>]) <span class="sc">/</span> (mc[<span class="dv">1</span>,<span class="dv">1</span>] <span class="sc">+</span> mc[<span class="dv">2</span>,<span class="dv">2</span>] <span class="sc">+</span>mc[<span class="dv">1</span>,<span class="dv">2</span>] <span class="sc">+</span> mc[<span class="dv">2</span>,<span class="dv">1</span>])</span>
+<span id="cb73-13"><a href="#cb73-13" aria-hidden="true" tabindex="-1"></a>  listamodelos[[i]] <span class="ot">&lt;-</span> clasificador</span>
+<span id="cb73-14"><a href="#cb73-14" aria-hidden="true" tabindex="-1"></a>  listaprecisiones[[i]] <span class="ot">&lt;-</span> precision</span>
+<span id="cb73-15"><a href="#cb73-15" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb73-16"><a href="#cb73-16" aria-hidden="true" tabindex="-1"></a>precisionRandomForest <span class="ot">&lt;-</span> <span class="fu">mean</span>(<span class="fu">as.numeric</span>(listaprecisiones))</span>
+<span id="cb73-17"><a href="#cb73-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-18"><a href="#cb73-18" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">Precision media RandomForest:"</span>,precisionRandomForest)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Precision media RandomForest: 0.8212498</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb75"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">Error medio RandomForest:"</span>,<span class="dv">1</span><span class="sc">-</span>precisionRandomForest)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Error medio RandomForest: 0.1787502</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb77"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb77-1"><a href="#cb77-1" aria-hidden="true" tabindex="-1"></a>mejormodelo <span class="ot">&lt;-</span> listamodelos[[indice]]</span>
+<span id="cb77-2"><a href="#cb77-2" aria-hidden="true" tabindex="-1"></a>test_set<span class="sc">$</span>Purchase <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(test_set<span class="sc">$</span>Purchase)</span>
+<span id="cb77-3"><a href="#cb77-3" aria-hidden="true" tabindex="-1"></a>predicciones <span class="ot">&lt;-</span> <span class="fu">predict</span>(mejormodelo, <span class="at">newdata =</span> test_set, <span class="at">type =</span> <span class="st">'class'</span>)</span>
+<span id="cb77-4"><a href="#cb77-4" aria-hidden="true" tabindex="-1"></a>mc <span class="ot">&lt;-</span> <span class="fu">table</span>(test_set<span class="sc">$</span>Purchase, predicciones)</span>
+<span id="cb77-5"><a href="#cb77-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb77-6"><a href="#cb77-6" aria-hidden="true" tabindex="-1"></a>precision <span class="ot">&lt;-</span>(mc[<span class="dv">1</span>,<span class="dv">1</span>] <span class="sc">+</span> mc[<span class="dv">2</span>,<span class="dv">2</span>]) <span class="sc">/</span> (mc[<span class="dv">1</span>,<span class="dv">1</span>] <span class="sc">+</span> mc[<span class="dv">2</span>,<span class="dv">2</span>] <span class="sc">+</span>mc[<span class="dv">1</span>,<span class="dv">2</span>] <span class="sc">+</span> mc[<span class="dv">2</span>,<span class="dv">1</span>])</span>
+<span id="cb77-7"><a href="#cb77-7" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">Precision RandomForest:"</span>,precision)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Precision RandomForest: 0.7990654</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb79"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb79-1"><a href="#cb79-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">Error RandomForest:"</span>,<span class="dv">1</span><span class="sc">-</span>precision)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Error RandomForest: 0.2009346</code></pre>
+</div>
+</div>
+<p>Finalmente el último modelo será ADABOOST:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb81"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb81-1"><a href="#cb81-1" aria-hidden="true" tabindex="-1"></a>listamodelos <span class="ot">&lt;-</span> <span class="fu">list</span>()</span>
+<span id="cb81-2"><a href="#cb81-2" aria-hidden="true" tabindex="-1"></a>listaprecisiones <span class="ot">&lt;-</span> <span class="fu">list</span>()</span>
+<span id="cb81-3"><a href="#cb81-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb81-4"><a href="#cb81-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>) {</span>
+<span id="cb81-5"><a href="#cb81-5" aria-hidden="true" tabindex="-1"></a>  training_fold <span class="ot">&lt;-</span> training_set[<span class="sc">-</span>folds[[i]], ]</span>
+<span id="cb81-6"><a href="#cb81-6" aria-hidden="true" tabindex="-1"></a>  test_fold <span class="ot">&lt;-</span> training_set[folds[[i]], ]</span>
+<span id="cb81-7"><a href="#cb81-7" aria-hidden="true" tabindex="-1"></a>  training_fold<span class="sc">$</span>Purchase <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(training_fold<span class="sc">$</span>Purchase)</span>
+<span id="cb81-8"><a href="#cb81-8" aria-hidden="true" tabindex="-1"></a>  test_fold<span class="sc">$</span>Purchase <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(test_fold<span class="sc">$</span>Purchase)</span>
+<span id="cb81-9"><a href="#cb81-9" aria-hidden="true" tabindex="-1"></a>  clasificador <span class="ot">&lt;-</span> <span class="fu">boosting</span>(Purchase <span class="sc">~</span> ., <span class="at">data =</span> training_fold, <span class="at">boos=</span><span class="cn">TRUE</span>, <span class="at">mfinal=</span><span class="dv">50</span>)</span>
+<span id="cb81-10"><a href="#cb81-10" aria-hidden="true" tabindex="-1"></a>  y_pred <span class="ot">&lt;-</span> <span class="fu">predict</span>(clasificador, <span class="at">newdata =</span> test_fold)<span class="sc">$</span>class</span>
+<span id="cb81-11"><a href="#cb81-11" aria-hidden="true" tabindex="-1"></a>  mc <span class="ot">&lt;-</span> <span class="fu">table</span>(test_fold<span class="sc">$</span>Purchase, y_pred)</span>
+<span id="cb81-12"><a href="#cb81-12" aria-hidden="true" tabindex="-1"></a>  precision <span class="ot">&lt;-</span> (mc[<span class="dv">1</span>,<span class="dv">1</span>] <span class="sc">+</span> mc[<span class="dv">2</span>,<span class="dv">2</span>]) <span class="sc">/</span> (mc[<span class="dv">1</span>,<span class="dv">1</span>] <span class="sc">+</span> mc[<span class="dv">2</span>,<span class="dv">2</span>] <span class="sc">+</span>mc[<span class="dv">1</span>,<span class="dv">2</span>] <span class="sc">+</span> mc[<span class="dv">2</span>,<span class="dv">1</span>])</span>
+<span id="cb81-13"><a href="#cb81-13" aria-hidden="true" tabindex="-1"></a>  listamodelos[[i]] <span class="ot">&lt;-</span> clasificador</span>
+<span id="cb81-14"><a href="#cb81-14" aria-hidden="true" tabindex="-1"></a>  listaprecisiones[[i]] <span class="ot">&lt;-</span> precision</span>
+<span id="cb81-15"><a href="#cb81-15" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb81-16"><a href="#cb81-16" aria-hidden="true" tabindex="-1"></a>precisionAdaBoost <span class="ot">&lt;-</span> <span class="fu">mean</span>(<span class="fu">as.numeric</span>(listaprecisiones))</span>
+<span id="cb81-17"><a href="#cb81-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb81-18"><a href="#cb81-18" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">Precision media AdaBoost:"</span>,precisionAdaBoost)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Precision media AdaBoost: 0.8224126</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb83"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb83-1"><a href="#cb83-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">Error medio AdaBoost:"</span>,<span class="dv">1</span><span class="sc">-</span>precisionAdaBoost)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Error medio AdaBoost: 0.1775874</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb85"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb85-1"><a href="#cb85-1" aria-hidden="true" tabindex="-1"></a>mejormodelo <span class="ot">&lt;-</span> listamodelos[[indice]]</span>
+<span id="cb85-2"><a href="#cb85-2" aria-hidden="true" tabindex="-1"></a>test_set<span class="sc">$</span>Purchase <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(test_set<span class="sc">$</span>Purchase)</span>
+<span id="cb85-3"><a href="#cb85-3" aria-hidden="true" tabindex="-1"></a>predicciones <span class="ot">&lt;-</span> <span class="fu">predict</span>(mejormodelo, <span class="at">newdata =</span> test_set)<span class="sc">$</span>class</span>
+<span id="cb85-4"><a href="#cb85-4" aria-hidden="true" tabindex="-1"></a>mc <span class="ot">&lt;-</span> <span class="fu">table</span>(test_set<span class="sc">$</span>Purchase, predicciones)</span>
+<span id="cb85-5"><a href="#cb85-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb85-6"><a href="#cb85-6" aria-hidden="true" tabindex="-1"></a>precision <span class="ot">&lt;-</span>(mc[<span class="dv">1</span>,<span class="dv">1</span>] <span class="sc">+</span> mc[<span class="dv">2</span>,<span class="dv">2</span>]) <span class="sc">/</span> (mc[<span class="dv">1</span>,<span class="dv">1</span>] <span class="sc">+</span> mc[<span class="dv">2</span>,<span class="dv">2</span>] <span class="sc">+</span>mc[<span class="dv">1</span>,<span class="dv">2</span>] <span class="sc">+</span> mc[<span class="dv">2</span>,<span class="dv">1</span>])</span>
+<span id="cb85-7"><a href="#cb85-7" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">Precision AdaBoost:"</span>,precision)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Precision AdaBoost: 0.7476636</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb87"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb87-1"><a href="#cb87-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">Error AdaBoost:"</span>,<span class="dv">1</span><span class="sc">-</span>precision)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Error AdaBoost: 0.2523364</code></pre>
+</div>
+</div>
+<p>Después de ver los resultados basados en la métrica eligida(precisión), eligiríamos la regresión logística pues es el modelo que menor error comete. Por otro lado también podríamos usar la discriminación lineal pues la diferencia entre los dos resultados es muy pequeña.</p>
+<p>A la horaa de implementar el modelo en la realidad la elección dependería de cómo se toman los datos y de la velocidad de resolución de modelo. A priori podemos pensar que LDA es más rápido por su sencillez pero puede dar algún problema con las correlaciones de las variables.</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./Rainprediction.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Predicción de lluvia en Australia</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./TFG.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">TFG</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>
